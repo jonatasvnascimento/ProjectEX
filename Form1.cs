@@ -17,6 +17,7 @@ namespace ProjectEX
     public partial class Form1 : Form
     {
         public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\Scala_I_dados.xlsx";
+        string[] colum1 = new string[4078];
         public Form1()
         {
             InitializeComponent();
@@ -81,7 +82,7 @@ namespace ProjectEX
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -89,29 +90,28 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
-            //dt.Columns.Add("Mark", typeof(bool));
-            //dt.Columns.Add("Chave", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
-
-            //cria um array do tipo string com nomes
-            string[] nomes = { "Criação de Usuarios", "Adição de Notas" };
-            string[] chaves = { "001", "002", "003" };
+            dt.Columns.Add("Enxoval", typeof(string));
 
             Excel ex = new Excel(path, 1);
-            string[,] read = ex.ReadRange(1, 1, 100, 2);
-            string[] colum1 = new string[read.Length];
+            string[] Barras = new string[20];
+            string[] Enxoval = new string[20];
 
-            for (int i = 0; i < read.Length; i++)
+            for (int i = 0; i < 20; i++)
             {
-                colum1[i] = read[i, 0];
+                Barras[i] = ex.ReadCell(i, 0);
+                Enxoval[i] = ex.ReadCell(i, 1);
+
             }
-            //bool[] status = { false, false, false, false, false };
-            for (int i = 0; i < colum1.Length; i++)
+
+            for (int i = 1; i < colum1.Length; i++)
             {
                 DataRow dr = dt.NewRow();
                 //dr["Estado"] = status[i];
                 //dr["Chave"] = chaves[i];
-                dr["Barras"] = colum1[i];
+                dr["Barras"] = Barras[i];
+                dr["Enxoval"] = Enxoval[i];
+
                 dt.Rows.Add(dr);
             }
             dataGridView1.DataSource = dt;

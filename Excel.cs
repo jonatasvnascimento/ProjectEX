@@ -43,6 +43,7 @@ namespace ProjectEX
                 return "";
             }
         }
+       
         public void WriteToCell(int i, int j, string s)
         {
             i++;
@@ -100,7 +101,7 @@ namespace ProjectEX
             {
                 for (int q = 1; q <= endY - startY; q++)
                 {
-                    returnstring[p - 1, q - 1] = holder[p, q].ToString();
+                        returnstring[p - 1, q - 1] = holder[p , q].ToString();
                 }
             }
             excel.Application.Quit();
