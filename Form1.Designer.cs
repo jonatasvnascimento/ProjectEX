@@ -34,13 +34,15 @@
             this.comboBoxSheet = new System.Windows.Forms.ComboBox();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRead = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBrowse.Location = new System.Drawing.Point(745, 398);
+            this.btnBrowse.Location = new System.Drawing.Point(876, 398);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(31, 23);
             this.btnBrowse.TabIndex = 0;
@@ -51,10 +53,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 368);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 342);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -84,7 +86,7 @@
             this.txtFilename.Location = new System.Drawing.Point(79, 398);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.ReadOnly = true;
-            this.txtFilename.Size = new System.Drawing.Size(660, 22);
+            this.txtFilename.Size = new System.Drawing.Size(791, 22);
             this.txtFilename.TabIndex = 4;
             // 
             // label2
@@ -97,12 +99,35 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Sheet";
             // 
+            // btnRead
+            // 
+            this.btnRead.Location = new System.Drawing.Point(79, 459);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.TabIndex = 6;
+            this.btnRead.Text = "Read";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(891, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "x";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.ClientSize = new System.Drawing.Size(919, 540);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnRead);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFilename);
             this.Controls.Add(this.comboBoxSheet);
@@ -126,5 +151,7 @@
         private System.Windows.Forms.ComboBox comboBoxSheet;
         private System.Windows.Forms.TextBox txtFilename;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.Label label3;
     }
 }

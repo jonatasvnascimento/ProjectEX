@@ -9,19 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace ProjectEX
 {
     public partial class Form1 : Form
     {
+        public string path { get; set; }
         public Form1()
         {
             InitializeComponent();
         }
-
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = TableCollection[comboBoxSheet.SelectedItem.ToString()];
+            System.Data.DataTable dt = TableCollection[comboBoxSheet.SelectedItem.ToString()];
             dataGridView1.DataSource = dt;
         }
 
@@ -35,11 +37,12 @@ namespace ProjectEX
                 {
                     //mostra o nome do arquivo na txt
                     txtFilename.Text = openFileDialog.FileName;
+                    path = openFileDialog.FileName;
                     //carrega o arquivo para leitura
                     System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
                     using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        
+
                         using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                         {
                             //tranforma em um dataset
@@ -52,14 +55,37 @@ namespace ProjectEX
                             });
                             TableCollection = result.Tables;
                             comboBoxSheet.Items.Clear();
-                            foreach (DataTable table in TableCollection)
+                            foreach (System.Data.DataTable table in TableCollection)
                             {
                                 comboBoxSheet.Items.Add(table.TableName);
+                                reader.Close();
                             }
                         }
                     }
                 }
             }
+        }
+
+        public void OpenFile()
+        {
+            Excel excel = new Excel(path, 1);
+            MessageBox.Show(excel.ReadCell(0, 0));
+        }
+        public void WriteData()
+        {
+            Excel excel = new Excel(path, 1);
+            excel.WriteToCell(0, 0, "99999");
+            excel.Save();
+            excel.Close();
+        }
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            WriteData();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
