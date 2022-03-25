@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRead = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,22 +120,12 @@
             this.label3.Text = "x";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(265, 38);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(642, 342);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(919, 540);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.label2);
@@ -164,6 +153,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView1;
     }
 }

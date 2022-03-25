@@ -16,21 +16,11 @@ namespace ProjectEX
 {
     public partial class Form1 : Form
     {
-        public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\p1.xlsx";
+        public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\Scala_I_dados.xlsx";
         public Form1()
         {
             InitializeComponent();
-            listView1.View = View.Details;
-            listView1.FullRowSelect = true;
-            listView1.Columns.Add("C1", 50);
-            listView1.Columns.Add("C2", 50);
-            listView1.Columns.Add("C3", 50);
-            listView1.Columns.Add("C4", 50);
-            listView1.Columns.Add("C5", 50);
-            listView1.Columns.Add("C6", 50);
-
-
-
+            carregaLista();
         }
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -92,10 +82,42 @@ namespace ProjectEX
         private void btnRead_Click(object sender, EventArgs e)
         {
             Excel ex = new Excel(path, 1);
-            string[,] read = ex.ReadRange(1,1,100000,7);
+            string[,] read = ex.ReadRange(1,1,100,2);
+            string[] colum1 = new string[read.Length];
+
+            for (int i = 0; i < read.Length; i++)
+            {
+                colum1[i] = read[i, 0];
+            }
             ex.Close();
 
         }
+
+        private void carregaLista()
+        {
+            System.Data.DataTable dt = new();
+
+            dt.Columns.Add("Mark", typeof(bool));
+            dt.Columns.Add("Chave", typeof(string));
+            dt.Columns.Add("Descrição", typeof(string));
+
+            //cria um array do tipo string com nomes
+            string[] nomes = { "Criação de Usuarios", "Adição de Notas" };
+            string[] chaves = { "001", "002" };
+
+            //bool[] status = { false, false, false, false, false };
+            for (int i = 0; i < nomes.Length; i++)
+            {
+                DataRow dr = dt.NewRow();
+                //dr["Estado"] = status[i];
+                dr["Chave"] = chaves[i];
+                dr["Descrição"] = nomes[i];
+                dt.Rows.Add(dr);
+            }
+            dataGridView1.DataSource = dt;
+
+        }
+
 
         private void label3_Click(object sender, EventArgs e)
         {
