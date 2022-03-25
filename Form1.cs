@@ -81,15 +81,7 @@ namespace ProjectEX
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            Excel ex = new Excel(path, 1);
-            string[,] read = ex.ReadRange(1,1,100,2);
-            string[] colum1 = new string[read.Length];
-
-            for (int i = 0; i < read.Length; i++)
-            {
-                colum1[i] = read[i, 0];
-            }
-            ex.Close();
+            
 
         }
 
@@ -97,21 +89,29 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
-            dt.Columns.Add("Mark", typeof(bool));
-            dt.Columns.Add("Chave", typeof(string));
-            dt.Columns.Add("Descrição", typeof(string));
+            //dt.Columns.Add("Mark", typeof(bool));
+            //dt.Columns.Add("Chave", typeof(string));
+            dt.Columns.Add("Barras", typeof(string));
 
             //cria um array do tipo string com nomes
             string[] nomes = { "Criação de Usuarios", "Adição de Notas" };
-            string[] chaves = { "001", "002" };
+            string[] chaves = { "001", "002", "003" };
 
+            Excel ex = new Excel(path, 1);
+            string[,] read = ex.ReadRange(1, 1, 100, 2);
+            string[] colum1 = new string[read.Length];
+
+            for (int i = 0; i < read.Length; i++)
+            {
+                colum1[i] = read[i, 0];
+            }
             //bool[] status = { false, false, false, false, false };
-            for (int i = 0; i < nomes.Length; i++)
+            for (int i = 0; i < colum1.Length; i++)
             {
                 DataRow dr = dt.NewRow();
                 //dr["Estado"] = status[i];
-                dr["Chave"] = chaves[i];
-                dr["Descrição"] = nomes[i];
+                //dr["Chave"] = chaves[i];
+                dr["Barras"] = colum1[i];
                 dt.Rows.Add(dr);
             }
             dataGridView1.DataSource = dt;

@@ -103,6 +103,7 @@ namespace ProjectEX
                     returnstring[p - 1, q - 1] = holder[p, q].ToString();
                 }
             }
+            excel.Application.Quit();
             return returnstring;
         }
     }
