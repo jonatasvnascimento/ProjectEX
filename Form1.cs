@@ -16,10 +16,21 @@ namespace ProjectEX
 {
     public partial class Form1 : Form
     {
-        public string path { get; set; }
+        public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\p1.xlsx";
         public Form1()
         {
             InitializeComponent();
+            listView1.View = View.Details;
+            listView1.FullRowSelect = true;
+            listView1.Columns.Add("C1", 50);
+            listView1.Columns.Add("C2", 50);
+            listView1.Columns.Add("C3", 50);
+            listView1.Columns.Add("C4", 50);
+            listView1.Columns.Add("C5", 50);
+            listView1.Columns.Add("C6", 50);
+
+
+
         }
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -80,7 +91,10 @@ namespace ProjectEX
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            WriteData();
+            Excel ex = new Excel(path, 1);
+            string[,] read = ex.ReadRange(1,1,100000,7);
+            ex.Close();
+
         }
 
         private void label3_Click(object sender, EventArgs e)
