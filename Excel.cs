@@ -112,6 +112,14 @@ namespace ProjectEX
             return holder;
 
         }
+        public void WriteRange(string value)
+        {
+            _Excel.Range cellRange = ws.Range["A1:A100"];
+            cellRange.Value = value;
+            wb.Save();
+            wb.Close();
+            Utils.CloseExcelCMD();
+        }
         public string[,] ReadRange(int startI, int startY, int endI, int endY)
         {
             _Excel.Range range = ws.Range[ws.Cells[startI, startY], ws.Cells[endI, endY]];
@@ -128,6 +136,6 @@ namespace ProjectEX
             excel.Application.Quit();
             return returnstring;
         }
-       
+
     }
 }

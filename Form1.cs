@@ -19,6 +19,17 @@ namespace ProjectEX
     {
         public string path { get; set; }
         public string TableName { get; set; }
+        string[] Barra = new string[0];
+        string[] Enxoval = new string[0];
+        string[] Descricao = new string[0];
+        string[] Cor = new string[0];
+        string[] Tamanho = new string[0];
+        string[] QtdHigienizações = new string[0];
+        string[] Cadastro = new string[0];
+        string[] Funcionario = new string[0];
+        string[] Nome = new string[0];
+        string[] Localização = new string[0];
+        string[] Contrato = new string[0];
         public Form1()
         {
             InitializeComponent();
@@ -85,14 +96,6 @@ namespace ProjectEX
             Excel excel = new Excel(path, 1);
             MessageBox.Show(excel.ReadCell(0, 0));
         }
-        private void btnRead_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "Select * from TESTE";
-            //Excel excel = new Excel(path, 1);
-            //excel.WriteToCell(0, 4080, "99999");
-            //excel.Save();
-            //excel.Close();
-        }
 
         private void carregaLista()
         {
@@ -114,17 +117,17 @@ namespace ProjectEX
             int FinalRow = ex.LastRowTotal(ex.ws);
             var ObjectRange = ex.RangeLine(TableName);
 
-            string[] Barra = new string[FinalRow];
-            string[] Enxoval = new string[FinalRow];
-            string[] Descricao = new string[FinalRow];
-            string[] Cor = new string[FinalRow];
-            string[] Tamanho = new string[FinalRow];
-            string[] QtdHigienizações = new string[FinalRow];
-            string[] Cadastro = new string[FinalRow];
-            string[] Funcionario = new string[FinalRow];
-            string[] Nome = new string[FinalRow];
-            string[] Localização = new string[FinalRow];
-            string[] Contrato = new string[FinalRow];
+            Barra = new string[FinalRow];
+            Enxoval = new string[FinalRow];
+            Descricao = new string[FinalRow];
+            Cor = new string[FinalRow];
+            Tamanho = new string[FinalRow];
+            QtdHigienizações = new string[FinalRow];
+            Cadastro = new string[FinalRow];
+            Funcionario = new string[FinalRow];
+            Nome = new string[FinalRow];
+            Localização = new string[FinalRow];
+            Contrato = new string[FinalRow];
 
             Utils.CloseExcelCMD();
 
@@ -132,34 +135,42 @@ namespace ProjectEX
             {
                 if (i < FinalRow - 1)
                 {
-                    Barra[i - 1]              = ObjectRange[i, 1].ToString();
-                    Enxoval[i - 1]            = ObjectRange[i, 4].ToString();
-                    Descricao[i - 1]          = ObjectRange[i, 5].ToString();
-                    Cor[i - 1]                = ObjectRange[i, 6].ToString();
-                    Tamanho[i - 1]            = ObjectRange[i, 23].ToString();
-                    QtdHigienizações[i - 1]   = ObjectRange[i, 30].ToString();
-                    Cadastro[i - 1]           = ObjectRange[i, 7].ToString();
-                    Funcionario[i - 1]        = ObjectRange[i, 2].ToString();
-                    Nome[i - 1]               = ObjectRange[i, 3].ToString();
-                    Localização[i - 1]        = ObjectRange[i, 16].ToString();
-                    Contrato[i - 1]           = ObjectRange[i, 20].ToString();
+                    try
+                    {
+                        Barra[i - 1] = ObjectRange[i, 1].ToString();
+                        Enxoval[i - 1] = ObjectRange[i, 4].ToString();
+                        Descricao[i - 1] = ObjectRange[i, 5].ToString();
+                        Cor[i - 1] = ObjectRange[i, 6].ToString();
+                        Tamanho[i - 1] = ObjectRange[i, 23].ToString();
+                        QtdHigienizações[i - 1] = ObjectRange[i, 30].ToString();
+                        Cadastro[i - 1] = ObjectRange[i, 7].ToString();
+                        Funcionario[i - 1] = ObjectRange[i, 2].ToString();
+                        Nome[i - 1] = ObjectRange[i, 3].ToString();
+                        Localização[i - 1] = ObjectRange[i, 16].ToString();
+                        Contrato[i - 1] = ObjectRange[i, 20].ToString();
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show($"{err}");
+                    }
+
                 }
             }
 
             for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
-                dr["Barras"]            = Barra[i];
-                dr["Enxoval"]           = Enxoval[i];
-                dr["Descricao"]         = Descricao[i];
-                dr["Cor"]               = Cor[i];
-                dr["Tamanho"]           = Tamanho[i];
-                dr["QtdHigienizações"]  = QtdHigienizações[i];
-                dr["Cadastro"]          = Cadastro[i];
-                dr["Funcionário"]       = Funcionario[i];
-                dr["Nome"]              = Nome[i];
-                dr["Localização"]       = Localização[i];
-                dr["Contrato"]          = Contrato[i];
+                dr["Barras"] = Barra[i];
+                dr["Enxoval"] = Enxoval[i];
+                dr["Descricao"] = Descricao[i];
+                dr["Cor"] = Cor[i];
+                dr["Tamanho"] = Tamanho[i];
+                dr["QtdHigienizações"] = QtdHigienizações[i];
+                dr["Cadastro"] = Cadastro[i];
+                dr["Funcionário"] = Funcionario[i];
+                dr["Nome"] = Nome[i];
+                dr["Localização"] = Localização[i];
+                dr["Contrato"] = Contrato[i];
 
 
                 dt.Rows.Add(dr);
@@ -171,6 +182,7 @@ namespace ProjectEX
         private void label3_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+            Utils.CloseExcelCMD();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -185,6 +197,19 @@ namespace ProjectEX
         private void dataGridView2_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             e.Column.FillWeight = 10;    // <<this line will help you
+        }
+
+        private void btnSQL_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "Select * from TESTE";
+        }
+
+        private void btnDepara_Click(object sender, EventArgs e)
+        {
+            Excel ex = new Excel(path, 1);
+            ex.WriteRange(Barra[100].ToString());
+            carregaLista();
+            Utils.CloseExcelCMD();
         }
     }
 }

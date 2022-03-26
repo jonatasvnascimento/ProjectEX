@@ -34,10 +34,11 @@
             this.comboBoxSheet = new System.Windows.Forms.ComboBox();
             this.txtFilename = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRead = new System.Windows.Forms.Button();
+            this.btnSQL = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnDepara = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,15 +102,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Sheet";
             // 
-            // btnRead
+            // btnSQL
             // 
-            this.btnRead.Location = new System.Drawing.Point(206, 426);
-            this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(77, 26);
-            this.btnRead.TabIndex = 6;
-            this.btnRead.Text = "Read";
-            this.btnRead.UseVisualStyleBackColor = true;
-            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            this.btnSQL.Location = new System.Drawing.Point(206, 426);
+            this.btnSQL.Name = "btnSQL";
+            this.btnSQL.Size = new System.Drawing.Size(77, 26);
+            this.btnSQL.TabIndex = 6;
+            this.btnSQL.Text = "Gerar SQL";
+            this.btnSQL.UseVisualStyleBackColor = true;
+            this.btnSQL.Click += new System.EventHandler(this.btnSQL_Click);
             // 
             // label3
             // 
@@ -139,16 +140,27 @@
             this.textBox1.Size = new System.Drawing.Size(633, 129);
             this.textBox1.TabIndex = 11;
             // 
+            // btnDepara
+            // 
+            this.btnDepara.Location = new System.Drawing.Point(289, 427);
+            this.btnDepara.Name = "btnDepara";
+            this.btnDepara.Size = new System.Drawing.Size(109, 26);
+            this.btnDepara.TabIndex = 12;
+            this.btnDepara.Text = "Planilha Depara";
+            this.btnDepara.UseVisualStyleBackColor = true;
+            this.btnDepara.Click += new System.EventHandler(this.btnDepara_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 540);
+            this.Controls.Add(this.btnDepara);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnRead);
+            this.Controls.Add(this.btnSQL);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFilename);
             this.Controls.Add(this.comboBoxSheet);
@@ -173,9 +185,10 @@
         private System.Windows.Forms.ComboBox comboBoxSheet;
         private System.Windows.Forms.TextBox txtFilename;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.Button btnSQL;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnDepara;
     }
 }
