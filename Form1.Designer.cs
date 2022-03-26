@@ -36,10 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRead = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.lblSQL = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBrowse
@@ -56,10 +54,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(618, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(633, 342);
+            this.dataGridView1.Size = new System.Drawing.Size(1239, 342);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -123,23 +121,14 @@
             this.label3.Text = "x";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dataGridView2
+            // label4
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 32);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(600, 342);
-            this.dataGridView2.TabIndex = 8;
-            // 
-            // lblSQL
-            // 
-            this.lblSQL.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblSQL.Location = new System.Drawing.Point(618, 398);
-            this.lblSQL.Name = "lblSQL";
-            this.lblSQL.Size = new System.Drawing.Size(633, 133);
-            this.lblSQL.TabIndex = 9;
-            this.lblSQL.Text = "SQL";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Importação de Dados";
             // 
             // Form1
             // 
@@ -147,8 +136,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 540);
-            this.Controls.Add(this.lblSQL);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.label2);
@@ -162,7 +150,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +165,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label lblSQL;
+        private System.Windows.Forms.Label label4;
     }
 }
