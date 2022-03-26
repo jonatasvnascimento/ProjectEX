@@ -16,16 +16,21 @@ namespace ProjectEX
 {
     public partial class Form1 : Form
     {
-        public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\Scala_I_dados.xlsx";
+        public string path { get; set; }
+        public string TableName { get; set; }
         public Form1()
         {
             InitializeComponent();
-            carregaLista();
+
         }
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             System.Data.DataTable dt = TableCollection[comboBoxSheet.SelectedItem.ToString()];
-            dataGridView1.DataSource = dt;
+            dataGridView2.DataSource = dt;
+        }
+        private void dataGridViewName_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            e.Column.FillWeight = 10;    // <<this line will help you
         }
 
         DataTableCollection TableCollection;
@@ -39,7 +44,7 @@ namespace ProjectEX
                     //mostra o nome do arquivo na txt
                     txtFilename.Text = openFileDialog.FileName;
                     path = openFileDialog.FileName;
-                    //carrega o arquivo para leitura
+                    //carrega o arquivo para leiturarrr
                     System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
                     using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
                     {
@@ -59,8 +64,14 @@ namespace ProjectEX
                             foreach (System.Data.DataTable table in TableCollection)
                             {
                                 comboBoxSheet.Items.Add(table.TableName);
+                                TableName = table.TableName;
                                 reader.Close();
                             }
+                            carregaLista();
+
+                            Excel ex = new Excel(path, 1);
+                            ex.wb.Close(false);
+
                         }
                     }
                 }
@@ -74,11 +85,11 @@ namespace ProjectEX
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-
-            Excel excel = new Excel(path, 1);
-            excel.WriteToCell(0, 4080, "99999");
-            excel.Save();
-            excel.Close();
+            lblSQL.Text = "Select * from TESTE";
+            //Excel excel = new Excel(path, 1);
+            //excel.WriteToCell(0, 4080, "99999");
+            //excel.Save();
+            //excel.Close();
         }
 
         private void carregaLista()
@@ -91,7 +102,7 @@ namespace ProjectEX
             Excel ex = new Excel(path, 1);
             int FinalRow = ex.LastRowTotal(ex.ws);
 
-            var ObjectRange = ex.RangeLine();
+            var ObjectRange = ex.RangeLine(TableName);
 
             string[] Barra = new string[FinalRow];
             string[] Enxoval = new string[FinalRow];
@@ -107,26 +118,15 @@ namespace ProjectEX
                 }
             }
 
-            //string[] Barras = new string[FinalRow];
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Barras[i] = ex.ReadCell(i, 0);
-            //}
-
-            //for (int i = 1; i < 2000; i++)
-            //{
-            //    DataRow dr = dt.NewRow();
-            //    dr["Barras"] = Barras[i];
-            //    dt.Rows.Add(dr);
-            //}
-
             for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
                 dr["Barras"] = Barra[i];
+                dr["Enxoval"] = Enxoval[i];
                 dt.Rows.Add(dr);
             }
             dataGridView1.DataSource = dt;
+            
 
 
         }
@@ -135,6 +135,15 @@ namespace ProjectEX
         private void label3_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void testeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

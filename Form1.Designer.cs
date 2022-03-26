@@ -36,13 +36,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRead = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.lblSQL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBrowse.Location = new System.Drawing.Point(876, 398);
+            this.btnBrowse.Location = new System.Drawing.Point(581, 398);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(31, 23);
             this.btnBrowse.TabIndex = 0;
@@ -53,10 +56,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(618, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(895, 342);
+            this.dataGridView1.Size = new System.Drawing.Size(633, 342);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -86,7 +89,7 @@
             this.txtFilename.Location = new System.Drawing.Point(79, 398);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.ReadOnly = true;
-            this.txtFilename.Size = new System.Drawing.Size(791, 22);
+            this.txtFilename.Size = new System.Drawing.Size(496, 22);
             this.txtFilename.TabIndex = 4;
             // 
             // label2
@@ -101,9 +104,9 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(79, 458);
+            this.btnRead.Location = new System.Drawing.Point(206, 426);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.Size = new System.Drawing.Size(77, 26);
             this.btnRead.TabIndex = 6;
             this.btnRead.Text = "Read";
             this.btnRead.UseVisualStyleBackColor = true;
@@ -113,19 +116,39 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(891, 9);
+            this.label3.Location = new System.Drawing.Point(1235, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "x";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 32);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(600, 342);
+            this.dataGridView2.TabIndex = 8;
+            // 
+            // lblSQL
+            // 
+            this.lblSQL.BackColor = System.Drawing.Color.Gainsboro;
+            this.lblSQL.Location = new System.Drawing.Point(618, 398);
+            this.lblSQL.Name = "lblSQL";
+            this.lblSQL.Size = new System.Drawing.Size(633, 133);
+            this.lblSQL.TabIndex = 9;
+            this.lblSQL.Text = "SQL";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(919, 540);
+            this.ClientSize = new System.Drawing.Size(1263, 540);
+            this.Controls.Add(this.lblSQL);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.label2);
@@ -137,7 +160,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +178,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label lblSQL;
     }
 }

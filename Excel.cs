@@ -97,13 +97,13 @@ namespace ProjectEX
             _Excel.Range lastCell = wks.Cells.SpecialCells(_Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             return lastCell.Row;
         }
-        public object[,] RangeLine()
+        public object[,] RangeLine(string TableName)
         {
             var lr = LastRowTotal(ws);
 
             _Excel.Application xl = new _Excel.Application();
             var wb = xl.Workbooks.Open(path);
-            ws = (Worksheet)wb.Worksheets["HPRO"];
+            ws = (Worksheet)wb.Worksheets[$"{TableName}"];
 
             object[,] holder = ws.Range[$"A1:AV{lr}"].Value;
 
