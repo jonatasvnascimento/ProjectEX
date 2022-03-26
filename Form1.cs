@@ -87,7 +87,7 @@ namespace ProjectEX
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
-            lblSQL.Text = "Select * from TESTE";
+            textBox1.Text = "Select * from TESTE";
             //Excel excel = new Excel(path, 1);
             //excel.WriteToCell(0, 4080, "99999");
             //excel.Save();
@@ -132,34 +132,34 @@ namespace ProjectEX
             {
                 if (i < FinalRow - 1)
                 {
-                    Barra[i - 1] = ObjectRange[i, 1].ToString();
-                    Enxoval[i - 1] = ObjectRange[i, 4].ToString();
-                    Descricao[i - 1] = ObjectRange[i, 4].ToString();
-                    Cor[i - 1] = ObjectRange[i, 4].ToString();
-                    Tamanho[i - 1] = ObjectRange[i, 4].ToString();
-                    QtdHigienizações[i - 1] = ObjectRange[i, 4].ToString();
-                    Cadastro[i - 1] = ObjectRange[i, 4].ToString();
-                    Funcionario[i - 1] = ObjectRange[i, 4].ToString();
-                    Nome[i - 1] = ObjectRange[i, 4].ToString();
-                    Localização[i - 1] = ObjectRange[i, 4].ToString();
-                    Contrato[i - 1] = ObjectRange[i, 4].ToString();
+                    Barra[i - 1]              = ObjectRange[i, 1].ToString();
+                    Enxoval[i - 1]            = ObjectRange[i, 4].ToString();
+                    Descricao[i - 1]          = ObjectRange[i, 5].ToString();
+                    Cor[i - 1]                = ObjectRange[i, 6].ToString();
+                    Tamanho[i - 1]            = ObjectRange[i, 23].ToString();
+                    QtdHigienizações[i - 1]   = ObjectRange[i, 30].ToString();
+                    Cadastro[i - 1]           = ObjectRange[i, 7].ToString();
+                    Funcionario[i - 1]        = ObjectRange[i, 2].ToString();
+                    Nome[i - 1]               = ObjectRange[i, 3].ToString();
+                    Localização[i - 1]        = ObjectRange[i, 16].ToString();
+                    Contrato[i - 1]           = ObjectRange[i, 20].ToString();
                 }
             }
 
             for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
-                dr["Barras"] = Barra[i];
-                dr["Enxoval"] = Enxoval[i];
-                dr["Descricao"] = Descricao[i];
-                dr["Cor"] = Descricao[i];
-                dr["Tamanho"] = Descricao[i];
-                dr["QtdHigienizações"] = Descricao[i];
-                dr["Cadastro"] = Descricao[i];
-                dr["Funcionário"] = Descricao[i];
-                dr["Nome"] = Descricao[i];
-                dr["Localização"] = Descricao[i];
-                dr["Contrato"] = Descricao[i];
+                dr["Barras"]            = Barra[i];
+                dr["Enxoval"]           = Enxoval[i];
+                dr["Descricao"]         = Descricao[i];
+                dr["Cor"]               = Cor[i];
+                dr["Tamanho"]           = Tamanho[i];
+                dr["QtdHigienizações"]  = QtdHigienizações[i];
+                dr["Cadastro"]          = Cadastro[i];
+                dr["Funcionário"]       = Funcionario[i];
+                dr["Nome"]              = Nome[i];
+                dr["Localização"]       = Localização[i];
+                dr["Contrato"]          = Contrato[i];
 
 
                 dt.Rows.Add(dr);

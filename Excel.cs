@@ -107,17 +107,7 @@ namespace ProjectEX
             ws = (Worksheet)wb.Worksheets[$"{TableName}"];
 
             object[,] holder = ws.Range[$"A1:AV{lr}"].Value;
-
-            //string[] teste = new string[lr];
-            //for (int i = 1; i < lr; i++)
-            //{
-            //    if (i < lr - 1)
-            //    {
-            //        teste[i - 1] = holder[i, 1].ToString();
-            //    }
-            //}
             wb.Close(true);
-            //teste[0] = holder[4078, 1].ToString();
 
             return holder;
 
