@@ -17,7 +17,6 @@ namespace ProjectEX
     public partial class Form1 : Form
     {
         public string path { get; set; } = @"C:\Users\jnascimento3\Desktop\teste\Scala_I_dados.xlsx";
-        string[] colum1 = new string[4078];
         public Form1()
         {
             InitializeComponent();
@@ -73,17 +72,13 @@ namespace ProjectEX
             Excel excel = new Excel(path, 1);
             MessageBox.Show(excel.ReadCell(0, 0));
         }
-        public void WriteData()
-        {
-            Excel excel = new Excel(path, 1);
-            excel.WriteToCell(0, 0, "99999");
-            excel.Save();
-            excel.Close();
-        }
         private void btnRead_Click(object sender, EventArgs e)
         {
 
-
+            Excel excel = new Excel(path, 1);
+            excel.WriteToCell(0, 4080, "99999");
+            excel.Save();
+            excel.Close();
         }
 
         private void carregaLista()
@@ -94,27 +89,45 @@ namespace ProjectEX
             dt.Columns.Add("Enxoval", typeof(string));
 
             Excel ex = new Excel(path, 1);
-            string[] Barras = new string[20];
-            string[] Enxoval = new string[20];
+            int FinalRow = ex.LastRowTotal(ex.ws);
 
-            for (int i = 0; i < 20; i++)
+            var ObjectRange = ex.RangeLine();
+
+            string[] Barra = new string[FinalRow];
+            string[] Enxoval = new string[FinalRow];
+
+
+            for (int i = 1; i < FinalRow; i++)
             {
-                Barras[i] = ex.ReadCell(i, 0);
-                Enxoval[i] = ex.ReadCell(i, 1);
+                if (i < FinalRow - 1)
+                {
+                    Barra[i - 1] = ObjectRange[i, 1].ToString();
+                    Enxoval[i - 1] = ObjectRange[i, 4].ToString();
 
+                }
             }
 
-            for (int i = 1; i < colum1.Length; i++)
+            //string[] Barras = new string[FinalRow];
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Barras[i] = ex.ReadCell(i, 0);
+            //}
+
+            //for (int i = 1; i < 2000; i++)
+            //{
+            //    DataRow dr = dt.NewRow();
+            //    dr["Barras"] = Barras[i];
+            //    dt.Rows.Add(dr);
+            //}
+
+            for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
-                //dr["Estado"] = status[i];
-                //dr["Chave"] = chaves[i];
-                dr["Barras"] = Barras[i];
-                dr["Enxoval"] = Enxoval[i];
-
+                dr["Barras"] = Barra[i];
                 dt.Rows.Add(dr);
             }
             dataGridView1.DataSource = dt;
+
 
         }
 

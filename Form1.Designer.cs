@@ -101,7 +101,7 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(79, 459);
+            this.btnRead.Location = new System.Drawing.Point(79, 458);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(75, 23);
             this.btnRead.TabIndex = 6;

@@ -13,8 +13,8 @@ namespace ProjectEX
     {
         public string path { get; set; }
         Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-        Workbook wb;
-        Worksheet ws;
+        public Workbook wb;
+        public Worksheet ws;
         public Excel(string path, int sheet)
         {
             try
@@ -30,6 +30,7 @@ namespace ProjectEX
             }
 
         }
+
         public string ReadCell(int i, int j)
         {
             i++;
@@ -43,7 +44,7 @@ namespace ProjectEX
                 return "";
             }
         }
-       
+
         public void WriteToCell(int i, int j, string s)
         {
             i++;
@@ -91,6 +92,35 @@ namespace ProjectEX
         //{
         //    wb.Unprotect(password);
         //}
+        public int LastRowTotal(_Excel.Worksheet wks)
+        {
+            _Excel.Range lastCell = wks.Cells.SpecialCells(_Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
+            return lastCell.Row;
+        }
+        public object[,] RangeLine()
+        {
+            var lr = LastRowTotal(ws);
+
+            _Excel.Application xl = new _Excel.Application();
+            var wb = xl.Workbooks.Open(path);
+            ws = (Worksheet)wb.Worksheets["HPRO"];
+
+            object[,] holder = ws.Range[$"A1:AV{lr}"].Value;
+
+            //string[] teste = new string[lr];
+            //for (int i = 1; i < lr; i++)
+            //{
+            //    if (i < lr - 1)
+            //    {
+            //        teste[i - 1] = holder[i, 1].ToString();
+            //    }
+            //}
+            wb.Close(true);
+            //teste[0] = holder[4078, 1].ToString();
+
+            return holder;
+
+        }
         public string[,] ReadRange(int startI, int startY, int endI, int endY)
         {
             _Excel.Range range = ws.Range[ws.Cells[startI, startY], ws.Cells[endI, endY]];
@@ -101,7 +131,7 @@ namespace ProjectEX
             {
                 for (int q = 1; q <= endY - startY; q++)
                 {
-                        returnstring[p - 1, q - 1] = holder[p , q].ToString();
+                    returnstring[p - 1, q - 1] = holder[p, q].ToString();
                 }
             }
             excel.Application.Quit();
