@@ -42,7 +42,7 @@ namespace ProjectEX
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             //System.Data.DataTable dt = TableCollection[comboBoxSheet.SelectedItem.ToString()];
-            //dataGridView2.DataSource = dt;
+            //dataGridView1.DataSource = dt;
         }
 
         DataTableCollection TableCollection;
@@ -137,11 +137,11 @@ namespace ProjectEX
 
             Utils.CloseExcelCMD();
 
-            for (int i = 1; i < FinalRow; i++)
+            try
             {
-                if (i < FinalRow - 1)
+                for (int i = 1; i < FinalRow; i++)
                 {
-                    try
+                    if (i < FinalRow - 1)
                     {
                         Barra[i - 1] = ObjectRange[i, 1].ToString();
                         Enxoval[i - 1] = ObjectRange[i, 4].ToString();
@@ -155,14 +155,15 @@ namespace ProjectEX
                         Localização[i - 1] = ObjectRange[i, 16].ToString();
                         Contrato[i - 1] = ObjectRange[i, 20].ToString();
                     }
-                    catch (Exception err)
-                    {
-                        MessageBox.Show($"{err}");
-                    }
-
                 }
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"{err.Message}");
             }
 
+            
             for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
@@ -181,13 +182,17 @@ namespace ProjectEX
 
                 dt.Rows.Add(dr);
             }
+
+            MessageBox.Show("Carregamento com sucesso");
             dataGridView1.DataSource = dt;
         }
 
 
         private void label3_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            frmPrincipal frmPrincipal  = new frmPrincipal();
+            this.Hide();
+            frmPrincipal.ShowDialog();
             Utils.CloseExcelCMD();
         }
 
@@ -203,11 +208,6 @@ namespace ProjectEX
         private void dataGridView2_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             e.Column.FillWeight = 10;    // <<this line will help you
-        }
-
-        private void btnSQL_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "Select * from TESTE";
         }
         public void CreateNewSheet()
         {
@@ -229,7 +229,7 @@ namespace ProjectEX
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = Barra.Length;
+            progressBar1.Maximum = FinalRow;
 
             ex.WriteRange("INDICE"          , "A", 1, "A", 1);
             ex.WriteRange("NOVO PROD"       , "C", 1,"C", 1);
