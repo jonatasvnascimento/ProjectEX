@@ -19,6 +19,8 @@ namespace ProjectEX
     {
         public string path { get; set; }
         public string newPath { get; set; }
+        public object[,] ObjectRange;
+        int FinalRow;
 
         public string TableName { get; set; }
         string[] Barra = new string[0];
@@ -118,8 +120,8 @@ namespace ProjectEX
             dt.Columns.Add("Contrato", typeof(string));
 
             Excel ex = new Excel(path, 1);
-            int FinalRow = ex.LastRowTotal(ex.ws);
-            var ObjectRange = ex.RangeLine(TableName);
+            FinalRow = ex.LastRowTotal(ex.ws);
+            ObjectRange = ex.RangeLine(TableName);
 
             Barra = new string[FinalRow];
             Enxoval = new string[FinalRow];
@@ -227,21 +229,34 @@ namespace ProjectEX
             progressBar1.Minimum = 0;
             progressBar1.Maximum = Barra.Length;
 
-            for (int i = 0; i < Barra.Length; i++)
+            ex.WriteRange("INDICE"          , "A", 1, "A", 1);
+            ex.WriteRange("NOVO PROD"       , "C", 1,"C", 1);
+            ex.WriteRange("ITEM CTR"        , "D", 1,"D", 1);
+            ex.WriteRange("NUM ARM"         , "M", 1,"M", 1);
+            ex.WriteRange("NUM GAV"         , "N", 1,"N", 1);
+            ex.WriteRange("COD SET"         , "P", 1,"P", 1);
+            ex.WriteRange("DESC SETOR"      , "Q", 1,"Q", 1);
+            ex.WriteRange("FILIAL"          , "D", 1,"D", 1);
+            ex.WriteRange("NOVO CONTRATO"   , "S", 1,"S", 1);
+
+            for (int i = 1; i < FinalRow; i++)
             {
                 progressBar1.Value = i;
-                ex.WriteRange(Barra[i]              , "A", i + 1, "A", i + 1);
-                ex.WriteRange(Enxoval[i]            , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Descricao[i]          , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Cor[i]                , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Tamanho[i]            , "B", i + 1, "B", i + 1);
-                ex.WriteRange(QtdHigienizações[i]   , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Cadastro[i]           , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Funcionario[i]        , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Nome[i]               , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Localização[i]        , "B", i + 1, "B", i + 1);
-                ex.WriteRange(Contrato[i]           , "B", i + 1, "B", i + 1);
-
+                if (i < FinalRow - 1)
+                {
+                    ex.WriteRange(i.ToString()        , "A", i + 1, "A", i + 1);   /* Indice*/
+                    ex.WriteRange(ObjectRange[i, 1].ToString(), "B", i, "B", i);   /* Barras*/
+                    ex.WriteRange(ObjectRange[i, 4].ToString(), "E", i, "E", i);   /* Enxoval*/
+                    ex.WriteRange(ObjectRange[i, 5].ToString(), "F", i, "F", i);   /* Descricao*/
+                    ex.WriteRange(ObjectRange[i, 6].ToString(), "G", i, "G", i);   /* Cor*/
+                    ex.WriteRange(ObjectRange[i, 23].ToString(), "H", i, "H", i);  /* Tamanho*/
+                    ex.WriteRange(ObjectRange[i, 30].ToString(), "I", i, "I", i);  /* QtdHigienizações*/
+                    ex.WriteRange(ObjectRange[i, 7].ToString(), "J", i, "J", i);   /* Cadastro*/
+                    ex.WriteRange(ObjectRange[i, 2].ToString(), "K", i, "K", i);   /* Funcionário */
+                    ex.WriteRange(ObjectRange[i, 3].ToString(), "L", i, "L", i);   /* Nome*/
+                    ex.WriteRange(ObjectRange[i, 16].ToString(), "P", i, "P", i);  /* Localização*/
+                    ex.WriteRange(ObjectRange[i, 20].ToString(), "T", i, "T", i);  /* Contrato*/
+                }
             }
             progressBar1.Visible = false;
             MessageBox.Show("Importação Concluida");
