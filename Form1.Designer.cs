@@ -40,6 +40,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnDepara = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.tbxImportPath = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,9 +73,9 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 398);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "File name:";
+            this.label1.Text = "File Path";
             // 
             // comboBoxSheet
             // 
@@ -79,8 +83,8 @@
             this.comboBoxSheet.FormattingEnabled = true;
             this.comboBoxSheet.Location = new System.Drawing.Point(79, 427);
             this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxSheet.TabIndex = 3;
+            this.comboBoxSheet.Size = new System.Drawing.Size(496, 25);
+            this.comboBoxSheet.TabIndex = 1;
             this.comboBoxSheet.SelectedIndexChanged += new System.EventHandler(this.comboBoxSheet_SelectedIndexChanged);
             // 
             // txtFilename
@@ -105,10 +109,10 @@
             // 
             // btnSQL
             // 
-            this.btnSQL.Location = new System.Drawing.Point(206, 426);
+            this.btnSQL.Location = new System.Drawing.Point(618, 605);
             this.btnSQL.Name = "btnSQL";
             this.btnSQL.Size = new System.Drawing.Size(77, 26);
-            this.btnSQL.TabIndex = 6;
+            this.btnSQL.TabIndex = 2;
             this.btnSQL.Text = "Gerar SQL";
             this.btnSQL.UseVisualStyleBackColor = true;
             this.btnSQL.Click += new System.EventHandler(this.btnSQL_Click);
@@ -138,32 +142,74 @@
             this.textBox1.Location = new System.Drawing.Point(618, 399);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(633, 129);
+            this.textBox1.Size = new System.Drawing.Size(633, 200);
             this.textBox1.TabIndex = 11;
             // 
             // btnDepara
             // 
-            this.btnDepara.Location = new System.Drawing.Point(289, 427);
+            this.btnDepara.Location = new System.Drawing.Point(1134, 605);
             this.btnDepara.Name = "btnDepara";
-            this.btnDepara.Size = new System.Drawing.Size(109, 26);
-            this.btnDepara.TabIndex = 12;
+            this.btnDepara.Size = new System.Drawing.Size(117, 26);
+            this.btnDepara.TabIndex = 3;
             this.btnDepara.Text = "Planilha Depara";
             this.btnDepara.UseVisualStyleBackColor = true;
             this.btnDepara.Click += new System.EventHandler(this.btnDepara_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(184, 199);
+            this.progressBar1.Location = new System.Drawing.Point(12, 505);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(875, 23);
-            this.progressBar1.TabIndex = 13;
+            this.progressBar1.Size = new System.Drawing.Size(563, 23);
+            this.progressBar1.TabIndex = 15;
+            // 
+            // tbxImportPath
+            // 
+            this.tbxImportPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxImportPath.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxImportPath.Location = new System.Drawing.Point(79, 459);
+            this.tbxImportPath.Name = "tbxImportPath";
+            this.tbxImportPath.ReadOnly = true;
+            this.tbxImportPath.Size = new System.Drawing.Size(496, 22);
+            this.tbxImportPath.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(12, 461);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Imp Path";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(701, 605);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 26);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Insert DB";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(784, 605);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(77, 26);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Copiar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1263, 540);
+            this.ClientSize = new System.Drawing.Size(1263, 653);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbxImportPath);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnDepara);
             this.Controls.Add(this.textBox1);
@@ -178,6 +224,7 @@
             this.Controls.Add(this.btnBrowse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -200,5 +247,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnDepara;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox tbxImportPath;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

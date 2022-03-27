@@ -225,6 +225,8 @@ namespace ProjectEX
             Excel ex = new Excel(newPath, 1);
             ex.path = newPath;
 
+            tbxImportPath.Text = newPath;
+
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = Barra.Length;
