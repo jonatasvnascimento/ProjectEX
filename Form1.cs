@@ -18,6 +18,8 @@ namespace ProjectEX
     public partial class Form1 : Form
     {
         public string path { get; set; }
+        public string newPath { get; set; }
+
         public string TableName { get; set; }
         string[] Barra = new string[0];
         string[] Enxoval = new string[0];
@@ -33,6 +35,7 @@ namespace ProjectEX
         public Form1()
         {
             InitializeComponent();
+            progressBar1.Visible = false;
         }
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -44,6 +47,7 @@ namespace ProjectEX
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             //Filtro para acher as planilhas
+            Utils.CloseExcelCMD();
             using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook|*xls|Excel Workbook|*.xlsx" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -84,7 +88,7 @@ namespace ProjectEX
                     catch (Exception ex)
                     {
 
-                        MessageBox.Show($"{ex}");
+                        MessageBox.Show($"Error:{ex.Message}");
                     }
 
                 }
@@ -203,13 +207,46 @@ namespace ProjectEX
         {
             textBox1.Text = "Select * from TESTE";
         }
+        public void CreateNewSheet()
+        {
+            Excel ex = new Excel(path, 1);
+            ex.CreateNewFile();
+            newPath = $"{path}_Importacao.xlsx";
+            ex.SaveAs(newPath);
+            ex.Close();
+            Utils.CloseExcelCMD();
+        }
 
         private void btnDepara_Click(object sender, EventArgs e)
         {
-            Excel ex = new Excel(path, 1);
-            ex.WriteRange(Barra[100].ToString());
-            carregaLista();
-            Utils.CloseExcelCMD();
+            CreateNewSheet();
+            Excel ex = new Excel(newPath, 1);
+            ex.path = newPath;
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = Barra.Length;
+
+            for (int i = 0; i < Barra.Length; i++)
+            {
+                progressBar1.Value = i;
+                ex.WriteRange(Barra[i]              , "A", i + 1, "A", i + 1);
+                ex.WriteRange(Enxoval[i]            , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Descricao[i]          , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Cor[i]                , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Tamanho[i]            , "B", i + 1, "B", i + 1);
+                ex.WriteRange(QtdHigienizações[i]   , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Cadastro[i]           , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Funcionario[i]        , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Nome[i]               , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Localização[i]        , "B", i + 1, "B", i + 1);
+                ex.WriteRange(Contrato[i]           , "B", i + 1, "B", i + 1);
+
+            }
+            progressBar1.Visible = false;
+            MessageBox.Show("Importação Concluida");
+            ex.Save();
+
         }
     }
 }

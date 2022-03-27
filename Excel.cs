@@ -62,7 +62,14 @@ namespace ProjectEX
         }
         public void SaveAs(string path)
         {
-            wb.SaveAs(path);
+            try
+            {
+                wb.SaveAs(path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Planilha não salva");
+            }
         }
         public void CreateNewFile()
         {
@@ -112,13 +119,10 @@ namespace ProjectEX
             return holder;
 
         }
-        public void WriteRange(string value)
+        public void WriteRange(string value, string LetterColunm, int numLine, string LetterColunm2, int numLine2)
         {
-            _Excel.Range cellRange = ws.Range["A1:A100"];
+            _Excel.Range cellRange = ws.Range[$"{LetterColunm}{numLine}:{LetterColunm2}{numLine2}"];
             cellRange.Value = value;
-            wb.Save();
-            wb.Close();
-            Utils.CloseExcelCMD();
         }
         public string[,] ReadRange(int startI, int startY, int endI, int endY)
         {

@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnDepara = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,12 +151,20 @@
             this.btnDepara.UseVisualStyleBackColor = true;
             this.btnDepara.Click += new System.EventHandler(this.btnDepara_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(184, 199);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(875, 23);
+            this.progressBar1.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 540);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnDepara);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
@@ -190,5 +199,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnDepara;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
