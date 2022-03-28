@@ -153,7 +153,7 @@ namespace ProjectEX
         {
             ws.Columns[String.Format("{0}", colunm)].Delete();
         }
-        public void inserColunm(string colunm)
+        public void inserColunm(string colunm, string name)
         {
 
             _Excel.Range oRng = ws.Range[String.Format("{0}", colunm)];
@@ -162,8 +162,14 @@ namespace ProjectEX
                     _Excel.XlInsertFormatOrigin.xlFormatFromRightOrBelow);
 
             oRng = ws.Range[String.Format("{0}", colunm)];
-            oRng.Value2 = "Discount";
+            oRng.Value2 = String.Format("{0}", name);
 
+        }
+        public void moveColunm(string copy, string paste)
+        {
+            _Excel.Range copyRange = ws.Range[$"{copy}"];
+            _Excel.Range insertRange = ws.Range[$"{paste}"];
+            insertRange.Insert(_Excel.XlInsertShiftDirection.xlShiftToRight, copyRange.Cut());
         }
 
     }

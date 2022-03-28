@@ -67,9 +67,11 @@ namespace ProjectEX
 
                             using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                             {
+
                                 //tranforma em um dataset
                                 DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
                                 {
+
                                     ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
                                     {
                                         UseHeaderRow = true,
@@ -77,6 +79,7 @@ namespace ProjectEX
                                 });
                                 TableCollection = result.Tables;
                                 comboBoxSheet.Items.Clear();
+
                                 foreach (System.Data.DataTable table in TableCollection)
                                 {
                                     comboBoxSheet.Items.Add(table.TableName);
@@ -102,7 +105,7 @@ namespace ProjectEX
             Excel excel = new Excel(path, 1);
             MessageBox.Show(excel.ReadCell(0, 0));
         }
-        
+
 
         private void carregaLista()
         {
@@ -164,7 +167,7 @@ namespace ProjectEX
                 MessageBox.Show($"{err.Message}");
             }
 
-            
+
             for (int i = 1; i < FinalRow; i++)
             {
                 DataRow dr = dt.NewRow();
@@ -179,22 +182,15 @@ namespace ProjectEX
                 dr["Nome"] = Nome[i];
                 dr["Localização"] = Localização[i];
                 dr["Contrato"] = Contrato[i];
-
-
                 dt.Rows.Add(dr);
             }
-
-            MessageBox.Show("Carregamento com sucesso");
             dataGridView1.DataSource = dt;
-
-
-
         }
 
 
         private void label3_Click(object sender, EventArgs e)
         {
-            frmPrincipal frmPrincipal  = new frmPrincipal();
+            frmPrincipal frmPrincipal = new frmPrincipal();
             this.Hide();
             frmPrincipal.ShowDialog();
             Utils.CloseExcelCMD();
@@ -218,26 +214,49 @@ namespace ProjectEX
             Excel ex = new Excel(path, 1);
             ex.CreateNewFile();
             newPath = $"{path}_{nameFile}.xlsx";
-            ex.SaveAs(newPath);
+            //ex.SaveAs(newPath);
             ex.Close();
             Utils.CloseExcelCMD();
         }
 
         private void btnDepara_Click(object sender, EventArgs e)
         {
-            testeSave();
+            SaveDeparaNew();
         }
-        public void testeSave()
+        public void SaveDeparaNew()
         {
             CreateNewSheet("Teste");
             Excel ex = new Excel(path, 1);
-            tbxImportPath.Text = path;
 
-            string newPath2 = $"{path}_Teste.xlsx";
-            ex.inserColunm("I1");
-            ex.deleteColunm("N");
+            string newPath2 = $"{path}_Importação.xlsx";
+            tbxImportPath.Text = newPath2;
+
+            ex.inserColunm("A1", "INDICE");
+            ex.inserColunm("B1", "NOVO PROD");
+            ex.inserColunm("C1", "ITEM CTR");
+            ex.inserColunm("D1", "NUM ARM");
+            ex.inserColunm("E1", "NUM GAV");
+            ex.inserColunm("F1", "COD SET");
+            ex.inserColunm("G1", "DESC SETOR");
+            ex.inserColunm("H1", "FILIAL");
+            ex.inserColunm("I1", "NOVO CONTRATO");
+            ex.moveColunm("J:J", "B:B"); //Barras
+            ex.moveColunm("M:M", "E:E"); //Enxoval
+            ex.moveColunm("N:N", "F:F"); //Descrição
+            ex.moveColunm("O:O", "G:G"); //Cor
+            ex.moveColunm("AF:AF", "H:H"); //Tamanho
+            ex.moveColunm("AM:AM", "I:I"); //QTDHIgienizada
+            ex.moveColunm("R:R", "J:J"); //Cadastro
+            ex.moveColunm("Q:Q", "K:K"); //Funcionario
+            ex.moveColunm("R:R", "L:L"); //Nome
+            ex.moveColunm("AA:AA", "O:O"); //Localização
+            ex.moveColunm("AE:AE", "T:T"); //Numero de contrato
+            ex.deleteColunm("U:BF");
 
             ex.SaveAs(newPath2);
+            MessageBox.Show("Concluido ");
+            ex.Close();
+            Utils.CloseExcelCMD();
         }
         public void Depara()
         {
