@@ -240,7 +240,7 @@ namespace ProjectEX
             ex.inserColunm("F1", "COD SET");
             ex.inserColunm("G1", "DESC SETOR");
             ex.inserColunm("H1", "FILIAL");
-            ex.inserColunm("I1", "NOVO CONTRATO");
+            ex.inserColunm("I1", "NOVO CONTRATO HPRO");
             ex.moveColunm("J:J", "B:B"); //Barras
             ex.moveColunm("M:M", "E:E"); //Enxoval
             ex.moveColunm("N:N", "F:F"); //Descrição
@@ -252,6 +252,7 @@ namespace ProjectEX
             ex.moveColunm("R:R", "L:L"); //Nome
             ex.moveColunm("AA:AA", "O:O"); //Localização
             ex.moveColunm("AE:AE", "T:T"); //Numero de contrato
+
             ex.deleteColunm("U:BF");
 
             ex.PaintCell("A1", "A1");
@@ -259,8 +260,6 @@ namespace ProjectEX
             ex.PaintCell("D1", "D1");
             ex.PaintCell("M1", "M1");
             ex.PaintCell("N1", "N1");
-            ex.PaintCell("P1", "P1");
-            ex.PaintCell("Q1", "Q1");
             ex.PaintCell("R1", "R1");
             ex.PaintCell("S1", "S1");
 

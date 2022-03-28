@@ -176,6 +176,7 @@ namespace ProjectEX
         {
            var chartRange = ws.get_Range($"{row}", $"{colunm}");
            Color redColor = Color.FromArgb(255, 255, 204);
+            chartRange.Font.Color = XlRgbColor.rgbBlack;
             chartRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(redColor);
         }
 
