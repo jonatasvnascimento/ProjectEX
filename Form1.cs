@@ -102,6 +102,7 @@ namespace ProjectEX
             Excel excel = new Excel(path, 1);
             MessageBox.Show(excel.ReadCell(0, 0));
         }
+        
 
         private void carregaLista()
         {
@@ -185,6 +186,9 @@ namespace ProjectEX
 
             MessageBox.Show("Carregamento com sucesso");
             dataGridView1.DataSource = dt;
+
+
+
         }
 
 
@@ -209,11 +213,11 @@ namespace ProjectEX
         {
             e.Column.FillWeight = 10;    // <<this line will help you
         }
-        public void CreateNewSheet()
+        public void CreateNewSheet(string nameFile)
         {
             Excel ex = new Excel(path, 1);
             ex.CreateNewFile();
-            newPath = $"{path}_Importacao.xlsx";
+            newPath = $"{path}_{nameFile}.xlsx";
             ex.SaveAs(newPath);
             ex.Close();
             Utils.CloseExcelCMD();
@@ -221,7 +225,23 @@ namespace ProjectEX
 
         private void btnDepara_Click(object sender, EventArgs e)
         {
-            CreateNewSheet();
+            testeSave();
+        }
+        public void testeSave()
+        {
+            CreateNewSheet("Teste");
+            Excel ex = new Excel(path, 1);
+            tbxImportPath.Text = path;
+
+            string newPath2 = $"{path}_Teste.xlsx";
+            ex.inserColunm("I1");
+            ex.deleteColunm("N");
+
+            ex.SaveAs(newPath2);
+        }
+        public void Depara()
+        {
+            //CreateNewSheet("Importação");
             Excel ex = new Excel(newPath, 1);
             ex.path = newPath;
 
@@ -231,22 +251,22 @@ namespace ProjectEX
             progressBar1.Minimum = 0;
             progressBar1.Maximum = FinalRow;
 
-            ex.WriteRange("INDICE"          , "A", 1, "A", 1);
-            ex.WriteRange("NOVO PROD"       , "C", 1,"C", 1);
-            ex.WriteRange("ITEM CTR"        , "D", 1,"D", 1);
-            ex.WriteRange("NUM ARM"         , "M", 1,"M", 1);
-            ex.WriteRange("NUM GAV"         , "N", 1,"N", 1);
-            ex.WriteRange("COD SET"         , "P", 1,"P", 1);
-            ex.WriteRange("DESC SETOR"      , "Q", 1,"Q", 1);
-            ex.WriteRange("FILIAL"          , "D", 1,"D", 1);
-            ex.WriteRange("NOVO CONTRATO"   , "S", 1,"S", 1);
+            ex.WriteRange("INDICE", "A", 1, "A", 1);
+            ex.WriteRange("NOVO PROD", "C", 1, "C", 1);
+            ex.WriteRange("ITEM CTR", "D", 1, "D", 1);
+            ex.WriteRange("NUM ARM", "M", 1, "M", 1);
+            ex.WriteRange("NUM GAV", "N", 1, "N", 1);
+            ex.WriteRange("COD SET", "P", 1, "P", 1);
+            ex.WriteRange("DESC SETOR", "Q", 1, "Q", 1);
+            ex.WriteRange("FILIAL", "D", 1, "D", 1);
+            ex.WriteRange("NOVO CONTRATO", "S", 1, "S", 1);
 
             for (int i = 1; i < FinalRow; i++)
             {
                 progressBar1.Value = i;
                 if (i < FinalRow - 1)
                 {
-                    ex.WriteRange(i.ToString()        , "A", i + 1, "A", i + 1);   /* Indice*/
+                    ex.WriteRange(i.ToString(), "A", i + 1, "A", i + 1);   /* Indice*/
                     ex.WriteRange(ObjectRange[i, 1].ToString(), "B", i, "B", i);   /* Barras*/
                     ex.WriteRange(ObjectRange[i, 4].ToString(), "E", i, "E", i);   /* Enxoval*/
                     ex.WriteRange(ObjectRange[i, 5].ToString(), "F", i, "F", i);   /* Descricao*/
@@ -261,11 +281,11 @@ namespace ProjectEX
                 }
             }
             progressBar1.Visible = false;
+
             MessageBox.Show("Importação Concluida");
             ex.Save();
             ex.Close();
             Utils.CloseExcelCMD();
-
         }
     }
 }

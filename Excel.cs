@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -121,6 +122,7 @@ namespace ProjectEX
         }
         public void WriteRange(string value, string LetterColunm, int numLine, string LetterColunm2, int numLine2)
         {
+            //_Excel.Range cellRange = ws.Range[$"{LetterColunm}{numLine}:{LetterColunm2}{numLine2}"];
             _Excel.Range cellRange = ws.Range[$"{LetterColunm}{numLine}:{LetterColunm2}{numLine2}"];
             cellRange.Value = value;
         }
@@ -139,6 +141,29 @@ namespace ProjectEX
             }
             excel.Application.Quit();
             return returnstring;
+        }
+        public void teste()
+        {
+            //_Excel.Range range = ws.get_Range(ws, ws.Cells[100, 100]);
+            //range.set_Value(Missing.Value, retList);
+            //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
+            //range = null;
+        }
+        public void deleteColunm(string colunm)
+        {
+            ws.Columns[String.Format("{0}", colunm)].Delete();
+        }
+        public void inserColunm(string colunm)
+        {
+
+            _Excel.Range oRng = ws.Range[String.Format("{0}", colunm)];
+
+            oRng.EntireColumn.Insert(_Excel.XlInsertShiftDirection.xlShiftToRight,
+                    _Excel.XlInsertFormatOrigin.xlFormatFromRightOrBelow);
+
+            oRng = ws.Range[String.Format("{0}", colunm)];
+            oRng.Value2 = "Discount";
+
         }
 
     }
