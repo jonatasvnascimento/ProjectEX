@@ -263,6 +263,8 @@ namespace ProjectEX
             progressBar1.Visible = false;
             MessageBox.Show("Importação Concluida");
             ex.Save();
+            ex.Close();
+            Utils.CloseExcelCMD();
 
         }
     }
