@@ -50,7 +50,7 @@ namespace ProjectEX
         {
             //Filtro para acher as planilhas
             Utils.CloseExcelCMD();
-            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook|*xls|Excel Workbook|*.xlsx" })
+            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*xls" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -240,7 +240,7 @@ namespace ProjectEX
             ex.inserColunm("F1", "COD SET");
             ex.inserColunm("G1", "DESC SETOR");
             ex.inserColunm("H1", "FILIAL");
-            ex.inserColunm("I1", "NOVO CONTRATO HPRO");
+            ex.inserColunm("I1", "NOVO CONTRATO");
             ex.moveColunm("J:J", "B:B"); //Barras
             ex.moveColunm("M:M", "E:E"); //Enxoval
             ex.moveColunm("N:N", "F:F"); //Descrição
