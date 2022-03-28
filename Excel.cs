@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -170,6 +171,12 @@ namespace ProjectEX
             _Excel.Range copyRange = ws.Range[$"{copy}"];
             _Excel.Range insertRange = ws.Range[$"{paste}"];
             insertRange.Insert(_Excel.XlInsertShiftDirection.xlShiftToRight, copyRange.Cut());
+        }
+        public void PaintCell(string row, string colunm)
+        {
+           var chartRange = ws.get_Range($"{row}", $"{colunm}");
+           Color redColor = Color.FromArgb(255, 255, 204);
+            chartRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(redColor);
         }
 
     }

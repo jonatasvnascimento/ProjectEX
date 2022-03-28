@@ -231,6 +231,7 @@ namespace ProjectEX
             string newPath2 = $"{path}_Importação.xlsx";
             tbxImportPath.Text = newPath2;
 
+
             ex.inserColunm("A1", "INDICE");
             ex.inserColunm("B1", "NOVO PROD");
             ex.inserColunm("C1", "ITEM CTR");
@@ -252,6 +253,16 @@ namespace ProjectEX
             ex.moveColunm("AA:AA", "O:O"); //Localização
             ex.moveColunm("AE:AE", "T:T"); //Numero de contrato
             ex.deleteColunm("U:BF");
+
+            ex.PaintCell("A1", "A1");
+            ex.PaintCell("C1", "C1");
+            ex.PaintCell("D1", "D1");
+            ex.PaintCell("M1", "M1");
+            ex.PaintCell("N1", "N1");
+            ex.PaintCell("P1", "P1");
+            ex.PaintCell("Q1", "Q1");
+            ex.PaintCell("R1", "R1");
+            ex.PaintCell("S1", "S1");
 
             ex.SaveAs(newPath2);
             MessageBox.Show("Concluido ");
