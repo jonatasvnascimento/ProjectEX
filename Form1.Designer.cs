@@ -40,6 +40,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tbxImportPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnOpenImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,9 +78,9 @@
             // 
             this.comboBoxSheet.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxSheet.FormattingEnabled = true;
-            this.comboBoxSheet.Location = new System.Drawing.Point(667, 427);
+            this.comboBoxSheet.Location = new System.Drawing.Point(667, 397);
             this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(452, 25);
+            this.comboBoxSheet.Size = new System.Drawing.Size(461, 25);
             this.comboBoxSheet.TabIndex = 1;
             this.comboBoxSheet.SelectedIndexChanged += new System.EventHandler(this.comboBoxSheet_SelectedIndexChanged);
             // 
@@ -97,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(618, 435);
+            this.label2.Location = new System.Drawing.Point(618, 404);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 5;
@@ -125,7 +126,7 @@
             // 
             // btnDepara
             // 
-            this.btnDepara.Location = new System.Drawing.Point(1134, 426);
+            this.btnDepara.Location = new System.Drawing.Point(1134, 397);
             this.btnDepara.Name = "btnDepara";
             this.btnDepara.Size = new System.Drawing.Size(117, 26);
             this.btnDepara.TabIndex = 3;
@@ -135,9 +136,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(618, 398);
+            this.progressBar1.Location = new System.Drawing.Point(667, 432);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(633, 23);
+            this.progressBar1.Size = new System.Drawing.Size(584, 23);
             this.progressBar1.TabIndex = 15;
             // 
             // tbxImportPath
@@ -160,12 +161,23 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Imp Path";
             // 
+            // btnOpenImport
+            // 
+            this.btnOpenImport.Location = new System.Drawing.Point(581, 430);
+            this.btnOpenImport.Name = "btnOpenImport";
+            this.btnOpenImport.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenImport.TabIndex = 18;
+            this.btnOpenImport.Text = "Open";
+            this.btnOpenImport.UseVisualStyleBackColor = true;
+            this.btnOpenImport.Click += new System.EventHandler(this.btnOpenImport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1263, 475);
+            this.ClientSize = new System.Drawing.Size(1263, 528);
+            this.Controls.Add(this.btnOpenImport);
             this.Controls.Add(this.tbxImportPath);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.progressBar1);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox tbxImportPath;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnOpenImport;
     }
 }

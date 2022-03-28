@@ -21,6 +21,7 @@ namespace ProjectEX
         public string newPath { get; set; }
         public object[,] ObjectRange;
         int FinalRow;
+        string newPath2;
 
         public string TableName { get; set; }
         string[] Barra = new string[0];
@@ -228,7 +229,7 @@ namespace ProjectEX
             CreateNewSheet("Teste");
             Excel ex = new Excel(path, 1);
 
-            string newPath2 = $"{path}_Importação.xlsx";
+            newPath2 = $"{path}_Importação.xlsx";
             tbxImportPath.Text = newPath2;
 
 
@@ -315,6 +316,11 @@ namespace ProjectEX
             ex.Save();
             ex.Close();
             Utils.CloseExcelCMD();
+        }
+
+        private void btnOpenImport_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", $"{newPath2}");
         }
     }
 }
