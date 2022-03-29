@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -118,6 +119,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblVersion);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 0);
@@ -134,6 +136,15 @@
             this.label2.Size = new System.Drawing.Size(122, 42);
             this.label2.TabIndex = 0;
             this.label2.Text = "HOME";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(543, 484);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(42, 17);
+            this.lblVersion.TabIndex = 1;
+            this.lblVersion.Text = "1.0.28";
             // 
             // frmPrincipal
             // 
@@ -166,5 +177,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

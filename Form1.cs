@@ -19,9 +19,13 @@ namespace ProjectEX
     {
         public string path { get; set; }
         public string newPath { get; set; }
-        public object[,] ObjectRange;
-        int FinalRow;
-        string newPath2;
+        public object[,] ObjectRange { get; set; }
+        public int FinalRow { get; set; }
+        public string newPath2 { get; set; }
+        public string newDirectory { get; set; }
+        public string newDirectory2 { get; set; }
+        public string PathImpotacao { get; set; }
+        public string NameFile { get; set; }
 
         public string TableName { get; set; }
         string[] Barra = new string[0];
@@ -229,7 +233,14 @@ namespace ProjectEX
 
         private void btnDepara_Click(object sender, EventArgs e)
         {
-            SaveDeparaNew();
+            if (path == null)
+            {
+                MessageBox.Show("Selecione uma planilha");
+            }
+            else
+            {
+                SaveDeparaNew();
+            }
         }
         public void SaveDeparaNew()
         {
@@ -345,20 +356,21 @@ namespace ProjectEX
 
         private void btnOpenImport_Click(object sender, EventArgs e)
         {
+            Process.Start("explorer.exe", @$"{PathImpotacao}\{NameFile}");
         }
         public void DeparaMove()
         {
-            var PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
+            PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
 
             string NameFileImportacao = Path.GetFileName(newPath2);
             string NameFileBase = Path.GetFileName(path);
 
-            string NameFile = NameFileBase.Replace(".xlsx", "");
+            NameFile = NameFileBase.Replace(".xlsx", "");
 
             Directory.CreateDirectory(@$"{PathImpotacao}\{NameFile}");
 
-            string newDirectory = @$"{PathImpotacao}\{NameFile}\{NameFileImportacao}";
-            string newDirectory2 = @$"{PathImpotacao}\{NameFile}\{NameFileBase}";
+            newDirectory = @$"{PathImpotacao}\{NameFile}\{NameFileImportacao}";
+            newDirectory2 = @$"{PathImpotacao}\{NameFile}\{NameFileBase}";
 
             if (File.Exists(newDirectory))
             {
