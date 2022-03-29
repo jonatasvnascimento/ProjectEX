@@ -107,7 +107,9 @@ namespace ProjectEX
             MessageBox.Show(excel.ReadCell(0, 0));
         }
 
-
+        private string valueField(object text) => isValid(text) ? text.ToString() : "";
+        private bool isValid(object value) => value != null && value.GetType() == typeof(string);
+      
         private void carregaLista()
         {
             System.Data.DataTable dt = new();
@@ -141,24 +143,23 @@ namespace ProjectEX
             Contrato = new string[FinalRow];
 
             Utils.CloseExcelCMD();
-
             try
             {
                 for (int i = 1; i < FinalRow; i++)
                 {
                     if (i < FinalRow - 1)
                     {
-                        Barra[i - 1] = ObjectRange[i, 1].ToString();
-                        Enxoval[i - 1] = ObjectRange[i, 4].ToString();
-                        Descricao[i - 1] = ObjectRange[i, 5].ToString();
-                        Cor[i - 1] = ObjectRange[i, 6].ToString();
-                        Tamanho[i - 1] = ObjectRange[i, 23].ToString();
+                        Barra[i - 1]            = ObjectRange[i, 1].ToString();
+                        Enxoval[i - 1]          = ObjectRange[i, 4].ToString();
+                        Descricao[i - 1]        = ObjectRange[i, 5].ToString();
+                        Cor[i - 1]              = ObjectRange[i, 6].ToString();
+                        Tamanho[i - 1]          = ObjectRange[i, 23].ToString();
                         QtdHigienizações[i - 1] = ObjectRange[i, 30].ToString();
-                        Cadastro[i - 1] = ObjectRange[i, 7].ToString();
-                        Funcionario[i - 1] = ObjectRange[i, 2].ToString();
-                        Nome[i - 1] = ObjectRange[i, 3].ToString();
-                        Localização[i - 1] = ObjectRange[i, 16].ToString();
-                        Contrato[i - 1] = ObjectRange[i, 20].ToString();
+                        Cadastro[i - 1]         = ObjectRange[i, 7].ToString();
+                        Funcionario[i - 1]      = ObjectRange[i, 2].ToString();
+                        Nome[i - 1]             = valueField(ObjectRange[i, 3]);
+                        Localização[i - 1]      = ObjectRange[i, 16].ToString();
+                        Contrato[i - 1]         = ObjectRange[i, 20].ToString();
                     }
                 }
 
@@ -188,6 +189,12 @@ namespace ProjectEX
             dataGridView1.DataSource = dt;
         }
 
+       public void ClearDTtxt()
+        {
+            dataGridView1.DataSource = "";
+            txtFilename.Text = "";
+            tbxImportPath.Text = "";
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -232,7 +239,12 @@ namespace ProjectEX
             newPath2 = $"{path}_Importação.xlsx";
             tbxImportPath.Text = newPath2;
 
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
 
+
+            progressBar1.Value = 0;
             ex.inserColunm("A1", "INDICE");
             ex.inserColunm("B1", "NOVO PROD");
             ex.inserColunm("C1", "ITEM CTR");
@@ -244,6 +256,7 @@ namespace ProjectEX
             ex.inserColunm("I1", "NOVO CONTRATO");
             ex.moveColunm("J:J", "B:B"); //Barras
             ex.moveColunm("M:M", "E:E"); //Enxoval
+            progressBar1.Value = 25;
             ex.moveColunm("N:N", "F:F"); //Descrição
             ex.moveColunm("O:O", "G:G"); //Cor
             ex.moveColunm("AF:AF", "H:H"); //Tamanho
@@ -253,6 +266,7 @@ namespace ProjectEX
             ex.moveColunm("R:R", "L:L"); //Nome
             ex.moveColunm("AA:AA", "O:O"); //Localização
             ex.moveColunm("AE:AE", "T:T"); //Numero de contrato
+            progressBar1.Value = 75;
 
             ex.deleteColunm("U:BF");
 
@@ -263,10 +277,14 @@ namespace ProjectEX
             ex.PaintCell("N1", "N1");
             ex.PaintCell("R1", "R1");
             ex.PaintCell("S1", "S1");
+
+            progressBar1.Value = 100;
             MessageBox.Show("Concluido");
             ex.SaveAs(newPath2);
             ex.Close();
             Utils.CloseExcelCMD();
+            progressBar1.Visible = false;
+            DeparaMove();
         }
         public void Depara()
         {
@@ -318,7 +336,6 @@ namespace ProjectEX
 
         private void btnOpenImport_Click(object sender, EventArgs e)
         {
-            DeparaMove();
         }
         public void DeparaMove()
         {
@@ -351,7 +368,7 @@ namespace ProjectEX
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            Process.Start("explorer.exe", $"{newDirectory}");
+            //Process.Start("explorer.exe", $"{newDirectory}");
         }
     }
 }
