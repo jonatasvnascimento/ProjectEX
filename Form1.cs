@@ -263,9 +263,8 @@ namespace ProjectEX
             ex.PaintCell("N1", "N1");
             ex.PaintCell("R1", "R1");
             ex.PaintCell("S1", "S1");
-
+            MessageBox.Show("Concluido");
             ex.SaveAs(newPath2);
-            MessageBox.Show("Concluido ");
             ex.Close();
             Utils.CloseExcelCMD();
         }
@@ -312,7 +311,6 @@ namespace ProjectEX
             }
             progressBar1.Visible = false;
 
-            MessageBox.Show("Importação Concluida");
             ex.Save();
             ex.Close();
             Utils.CloseExcelCMD();
@@ -320,7 +318,40 @@ namespace ProjectEX
 
         private void btnOpenImport_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", $"{newPath2}");
+            DeparaMove();
+        }
+        public void DeparaMove()
+        {
+            var PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
+
+            string NameFileImportacao = Path.GetFileName(newPath2);
+            string NameFileBase = Path.GetFileName(path);
+
+            string NameFile = NameFileBase.Replace(".xlsx", "");
+
+            Directory.CreateDirectory(@$"{PathImpotacao}\{NameFile}");
+
+            string newDirectory = @$"{PathImpotacao}\{NameFile}\{NameFileImportacao}";
+            string newDirectory2 = @$"{PathImpotacao}\{NameFile}\{NameFileBase}";
+
+            if (File.Exists(newDirectory))
+            {
+                File.Delete(newDirectory);
+            }
+            if (File.Exists(newDirectory2))
+            {
+                File.Delete(newDirectory2);
+            }
+            try
+            {
+                File.Move(newPath2, newDirectory);
+                File.Move(path, newDirectory2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            Process.Start("explorer.exe", $"{newDirectory}");
         }
     }
 }

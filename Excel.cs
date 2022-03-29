@@ -143,13 +143,6 @@ namespace ProjectEX
             excel.Application.Quit();
             return returnstring;
         }
-        public void teste()
-        {
-            //_Excel.Range range = ws.get_Range(ws, ws.Cells[100, 100]);
-            //range.set_Value(Missing.Value, retList);
-            //System.Runtime.InteropServices.Marshal.ReleaseComObject(range);
-            //range = null;
-        }
         public void deleteColunm(string colunm)
         {
             ws.Columns[String.Format("{0}", colunm)].Delete();
