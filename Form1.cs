@@ -245,6 +245,7 @@ namespace ProjectEX
 
 
             progressBar1.Value = 0;
+
             ex.inserColunm("A1", "INDICE");
             ex.inserColunm("B1", "NOVO PROD");
             ex.inserColunm("C1", "ITEM CTR");
@@ -256,7 +257,9 @@ namespace ProjectEX
             ex.inserColunm("I1", "NOVO CONTRATO");
             ex.moveColunm("J:J", "B:B"); //Barras
             ex.moveColunm("M:M", "E:E"); //Enxoval
+
             progressBar1.Value = 25;
+
             ex.moveColunm("N:N", "F:F"); //Descrição
             ex.moveColunm("O:O", "G:G"); //Cor
             ex.moveColunm("AF:AF", "H:H"); //Tamanho
@@ -266,6 +269,7 @@ namespace ProjectEX
             ex.moveColunm("R:R", "L:L"); //Nome
             ex.moveColunm("AA:AA", "O:O"); //Localização
             ex.moveColunm("AE:AE", "T:T"); //Numero de contrato
+
             progressBar1.Value = 75;
 
             ex.deleteColunm("U:BF");
@@ -280,10 +284,15 @@ namespace ProjectEX
 
             progressBar1.Value = 100;
             MessageBox.Show("Concluido");
+
             ex.SaveAs(newPath2);
             ex.Close();
+
             Utils.CloseExcelCMD();
+            ClearDTtxt();
+
             progressBar1.Visible = false;
+
             DeparaMove();
         }
         public void Depara()

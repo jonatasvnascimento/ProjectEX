@@ -78,10 +78,11 @@
             // 
             this.comboBoxSheet.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxSheet.FormattingEnabled = true;
-            this.comboBoxSheet.Location = new System.Drawing.Point(667, 397);
+            this.comboBoxSheet.Location = new System.Drawing.Point(79, 426);
             this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(461, 25);
+            this.comboBoxSheet.Size = new System.Drawing.Size(496, 25);
             this.comboBoxSheet.TabIndex = 1;
+            this.comboBoxSheet.Visible = false;
             this.comboBoxSheet.SelectedIndexChanged += new System.EventHandler(this.comboBoxSheet_SelectedIndexChanged);
             // 
             // txtFilename
@@ -98,11 +99,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(618, 404);
+            this.label2.Location = new System.Drawing.Point(27, 429);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Sheet";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -136,26 +138,26 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(667, 432);
+            this.progressBar1.Location = new System.Drawing.Point(12, 459);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(584, 23);
+            this.progressBar1.Size = new System.Drawing.Size(1239, 23);
             this.progressBar1.TabIndex = 15;
             // 
             // tbxImportPath
             // 
             this.tbxImportPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxImportPath.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxImportPath.Location = new System.Drawing.Point(79, 430);
+            this.tbxImportPath.Location = new System.Drawing.Point(684, 398);
             this.tbxImportPath.Name = "tbxImportPath";
             this.tbxImportPath.ReadOnly = true;
-            this.tbxImportPath.Size = new System.Drawing.Size(496, 22);
+            this.tbxImportPath.Size = new System.Drawing.Size(444, 22);
             this.tbxImportPath.TabIndex = 17;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(12, 432);
+            this.label5.Location = new System.Drawing.Point(618, 403);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 16;
@@ -163,9 +165,9 @@
             // 
             // btnOpenImport
             // 
-            this.btnOpenImport.Location = new System.Drawing.Point(581, 430);
+            this.btnOpenImport.Location = new System.Drawing.Point(1134, 430);
             this.btnOpenImport.Name = "btnOpenImport";
-            this.btnOpenImport.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenImport.Size = new System.Drawing.Size(117, 23);
             this.btnOpenImport.TabIndex = 18;
             this.btnOpenImport.Text = "Open";
             this.btnOpenImport.UseVisualStyleBackColor = true;
