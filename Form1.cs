@@ -149,17 +149,17 @@ namespace ProjectEX
                 {
                     if (i < FinalRow - 1)
                     {
-                        Barra[i - 1]            = ObjectRange[i, 1].ToString();
-                        Enxoval[i - 1]          = ObjectRange[i, 4].ToString();
-                        Descricao[i - 1]        = ObjectRange[i, 5].ToString();
-                        Cor[i - 1]              = ObjectRange[i, 6].ToString();
-                        Tamanho[i - 1]          = ObjectRange[i, 23].ToString();
-                        QtdHigienizações[i - 1] = ObjectRange[i, 30].ToString();
-                        Cadastro[i - 1]         = ObjectRange[i, 7].ToString();
-                        Funcionario[i - 1]      = ObjectRange[i, 2].ToString();
+                        Barra[i - 1]            = valueField(ObjectRange[i, 1]);
+                        Enxoval[i - 1]          = valueField(ObjectRange[i, 4]);
+                        Descricao[i - 1]        = valueField(ObjectRange[i, 5]);
+                        Cor[i - 1]              = valueField(ObjectRange[i, 6]);
+                        Tamanho[i - 1]          = valueField(ObjectRange[i, 23]);
+                        QtdHigienizações[i - 1] = valueField(ObjectRange[i, 30]);
+                        Cadastro[i - 1]         = valueField(ObjectRange[i, 7]);
+                        Funcionario[i - 1]      = valueField(ObjectRange[i, 2]);
                         Nome[i - 1]             = valueField(ObjectRange[i, 3]);
-                        Localização[i - 1]      = ObjectRange[i, 16].ToString();
-                        Contrato[i - 1]         = ObjectRange[i, 20].ToString();
+                        Localização[i - 1]      = valueField(ObjectRange[i, 16]);
+                        Contrato[i - 1]         = valueField(ObjectRange[i, 20]);
                     }
                 }
 
