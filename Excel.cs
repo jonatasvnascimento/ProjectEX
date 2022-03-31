@@ -106,6 +106,7 @@ namespace ProjectEX
         {
             _Excel.Range lastCell = wks.Cells.SpecialCells(_Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             return lastCell.Row;
+
         }
         public object[,] RangeLine(string TableName)
         {
@@ -167,8 +168,8 @@ namespace ProjectEX
         }
         public void PaintCell(string row, string colunm)
         {
-           var chartRange = ws.get_Range($"{row}", $"{colunm}");
-           Color redColor = Color.FromArgb(255, 255, 204);
+            var chartRange = ws.get_Range($"{row}", $"{colunm}");
+            Color redColor = Color.FromArgb(255, 255, 204);
             chartRange.Font.Color = XlRgbColor.rgbBlack;
             chartRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(redColor);
         }
