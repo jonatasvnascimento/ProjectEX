@@ -39,15 +39,17 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBoxSheet = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxGeradorSQL
             // 
-            this.tbxGeradorSQL.Location = new System.Drawing.Point(651, 33);
+            this.tbxGeradorSQL.Location = new System.Drawing.Point(296, 33);
             this.tbxGeradorSQL.Multiline = true;
             this.tbxGeradorSQL.Name = "tbxGeradorSQL";
-            this.tbxGeradorSQL.Size = new System.Drawing.Size(600, 401);
+            this.tbxGeradorSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxGeradorSQL.Size = new System.Drawing.Size(955, 401);
             this.tbxGeradorSQL.TabIndex = 0;
             // 
             // label1
@@ -98,6 +100,7 @@
             this.btnCopiar.TabIndex = 5;
             this.btnCopiar.Text = "Copiar";
             this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
             // 
             // txtFilename
             // 
@@ -143,14 +146,23 @@
             this.DataGridView1.Location = new System.Drawing.Point(12, 33);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowTemplate.Height = 25;
-            this.DataGridView1.Size = new System.Drawing.Size(633, 401);
+            this.DataGridView1.Size = new System.Drawing.Size(278, 401);
             this.DataGridView1.TabIndex = 10;
+            // 
+            // comboBoxSheet
+            // 
+            this.comboBoxSheet.FormattingEnabled = true;
+            this.comboBoxSheet.Location = new System.Drawing.Point(79, 471);
+            this.comboBoxSheet.Name = "comboBoxSheet";
+            this.comboBoxSheet.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxSheet.TabIndex = 11;
             // 
             // frmSQLgerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 488);
+            this.ClientSize = new System.Drawing.Size(1263, 527);
+            this.Controls.Add(this.comboBoxSheet);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtFilename);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataGridView DataGridView1;
+        private System.Windows.Forms.ComboBox comboBoxSheet;
     }
 }
