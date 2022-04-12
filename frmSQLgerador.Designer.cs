@@ -40,16 +40,19 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxSheet = new System.Windows.Forms.ComboBox();
+            this.tbxNomeCliente = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxGeradorSQL
             // 
-            this.tbxGeradorSQL.Location = new System.Drawing.Point(296, 33);
+            this.tbxGeradorSQL.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbxGeradorSQL.Location = new System.Drawing.Point(341, 33);
             this.tbxGeradorSQL.Multiline = true;
             this.tbxGeradorSQL.Name = "tbxGeradorSQL";
             this.tbxGeradorSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxGeradorSQL.Size = new System.Drawing.Size(955, 401);
+            this.tbxGeradorSQL.Size = new System.Drawing.Size(910, 401);
             this.tbxGeradorSQL.TabIndex = 0;
             // 
             // label1
@@ -146,22 +149,41 @@
             this.DataGridView1.Location = new System.Drawing.Point(12, 33);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowTemplate.Height = 25;
-            this.DataGridView1.Size = new System.Drawing.Size(278, 401);
+            this.DataGridView1.Size = new System.Drawing.Size(323, 401);
             this.DataGridView1.TabIndex = 10;
             // 
             // comboBoxSheet
             // 
             this.comboBoxSheet.FormattingEnabled = true;
-            this.comboBoxSheet.Location = new System.Drawing.Point(79, 471);
+            this.comboBoxSheet.Location = new System.Drawing.Point(79, 500);
             this.comboBoxSheet.Name = "comboBoxSheet";
             this.comboBoxSheet.Size = new System.Drawing.Size(121, 23);
             this.comboBoxSheet.TabIndex = 11;
+            // 
+            // tbxNomeCliente
+            // 
+            this.tbxNomeCliente.Location = new System.Drawing.Point(79, 471);
+            this.tbxNomeCliente.Name = "tbxNomeCliente";
+            this.tbxNomeCliente.Size = new System.Drawing.Size(496, 23);
+            this.tbxNomeCliente.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(12, 473);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Cliente";
             // 
             // frmSQLgerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 527);
+            this.ClientSize = new System.Drawing.Size(1266, 527);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbxNomeCliente);
             this.Controls.Add(this.comboBoxSheet);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.progressBar1);
@@ -199,5 +221,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataGridView DataGridView1;
         private System.Windows.Forms.ComboBox comboBoxSheet;
+        private System.Windows.Forms.TextBox tbxNomeCliente;
+        private System.Windows.Forms.Label label3;
     }
 }

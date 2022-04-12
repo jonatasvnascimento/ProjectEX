@@ -124,7 +124,6 @@ namespace ProjectEX
         }
         public void WriteRange(string value, string LetterColunm, int numLine, string LetterColunm2, int numLine2)
         {
-            //_Excel.Range cellRange = ws.Range[$"{LetterColunm}{numLine}:{LetterColunm2}{numLine2}"];
             _Excel.Range cellRange = ws.Range[$"{LetterColunm}{numLine}:{LetterColunm2}{numLine2}"];
             cellRange.Value = value;
         }
@@ -172,6 +171,12 @@ namespace ProjectEX
             Color redColor = Color.FromArgb(255, 255, 204);
             chartRange.Font.Color = XlRgbColor.rgbBlack;
             chartRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(redColor);
+        }
+        public void formulaInExcel(string range1, string range2, string formula)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+            _Excel.Range cellRange = ws.Range[$"{range1}:{range2}"];
+            cellRange.Formula = $"{formula}";
         }
 
     }

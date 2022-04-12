@@ -20,3 +20,6 @@ dotnet_diagnostic.CS8604.severity = none
 
 # IDE0001: Simplify Names
 dotnet_diagnostic.IDE0001.severity = none
+
+# IDE0022: Use block body for methods
+csharp_style_expression_bodied_methods = false
