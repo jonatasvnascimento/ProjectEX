@@ -15,7 +15,7 @@ namespace ProjectEX
         public frmPrincipal()
         {
             InitializeComponent();
-            lblVersion.Text = "1.0.29";
+            lblVersion.Text = "1.0.34";
         }
 
         private void leituraDeparaToolStripMenuItem_Click(object sender, EventArgs e)
