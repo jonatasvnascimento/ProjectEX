@@ -36,6 +36,8 @@ namespace ProjectEX
         string[] Contrato = new string[0];
         string[] NovoContrato = new string[0];
         string[] Cliente = new string[0];
+        string[] SQL = new string[0];
+        string[] Armario = new string[0];
 
 
         public frmSQLgerador()
@@ -54,7 +56,7 @@ namespace ProjectEX
 
         private void btnGerarSQL_Click(object sender, EventArgs e)
         {
-            getExcelValues();
+            copyDataGrid();
             carregaLista();
         }
 
@@ -144,7 +146,7 @@ namespace ProjectEX
 
             progressBar1.Value = 0;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = 1000;
+            progressBar1.Maximum = FinalRow;
 
 
             if (!String.IsNullOrEmpty(path))
@@ -153,13 +155,12 @@ namespace ProjectEX
                 ObjectRange = ex.RangeLine("HPRO");
 
                
-                //('', '031824420', '', '0005.0001', 'Macacão Sala Limpa WA2010H', 'L', '0', '20120822', '1', 'Sala Limpa', '000000', '', '', 'S00108', '131029', '36', '', '', '', '', '', '', '', '', 'Cliente'),
-
                 progressBar1.Visible = true;
-                for (int i = 1; i < 10; i++)
+
+                tbxGeradorSQL.Text = "('','CODBAR','PROUT','OLDPRO','DESPRO','TAM','QTD','DATA','CODFUN','NOMFUN','NUMARM','CODSET','DESSET','CONTR','OLDCLI','FILCTR','CODIMP','DTIMP','OBS','ITEMCT','DELETE','RECNO','NUMGAV','MSFIL','MSEMP','ARMLOCALI')";
+                for (int i = 1; i < 5000; i++)
                 {
-                    progressBar1.Value = i;
-                    
+                    progressBar1.Value = i - 1;
                     tbxGeradorSQL.AppendText(
                         $"('', " +
                         $"'{Barra[i]}', " +
@@ -175,8 +176,8 @@ namespace ProjectEX
                         $"'', " +
                         $"'', " +
                         $"'{Contrato[i]}', " +
-                        $"'191016 Mop', " +
-                        $"'36', " +
+                        $"'{Cliente[i]}', " +
+                        $"'{Filial[i]}', " +
                         $"'', " +
                         $"'', " +
                         $"'', " +
@@ -185,7 +186,7 @@ namespace ProjectEX
                         $"'', " +
                         $"'', " +
                         $"'', " +
-                        $"'')");
+                        $"'{Localização[i]}')");
 
                     tbxGeradorSQL.AppendText(Environment.NewLine);
 
@@ -219,8 +220,9 @@ namespace ProjectEX
                 MessageBox.Show("Informe o Nome do cliente");
                 return;
             }
+           
 
-
+            dt.Columns.Add("SQL", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
             dt.Columns.Add("Enxoval", typeof(string));
             dt.Columns.Add("Descricao", typeof(string));
@@ -235,6 +237,7 @@ namespace ProjectEX
             dt.Columns.Add("Contrato", typeof(string));
             dt.Columns.Add("NovoContrato", typeof(string));
             dt.Columns.Add("Cliente", typeof(string));
+            dt.Columns.Add("Armario", typeof(string));
 
             Excel ex = new Excel(path, 1);
             FinalRow = ex.LastRowTotal(ex.ws);
@@ -254,6 +257,7 @@ namespace ProjectEX
             Contrato = new string[FinalRow];
             NovoContrato = new string[FinalRow];
             Cliente = new string[FinalRow];
+            Armario = new string[FinalRow];
 
             Utils.CloseExcelCMD();
             try
@@ -271,6 +275,7 @@ namespace ProjectEX
                         Cadastro[i - 1] = valueField(ObjectRange[i, 10]);
                         Funcionario[i - 1] = valueField(ObjectRange[i, 11]);
                         Nome[i - 1] = valueField(ObjectRange[i, 12]);
+                        Armario[i - 1] = valueField(ObjectRange[i, 13]);
                         Localização[i - 1] = valueField(ObjectRange[i, 15]);
                         Filial[i - 1] = valueField(ObjectRange[i, 18]);
                         Contrato[i - 1] = valueField(ObjectRange[i, 20]);
@@ -284,10 +289,52 @@ namespace ProjectEX
                 MessageBox.Show($"{err.Message}");
             }
 
-
             for (int i = 1; i < FinalRow; i++)
-            {
+            {//codbarr = slice(-6, 6, "000000" + variavel)
                 DataRow dr = dt.NewRow();
+                
+                validaCampo(Barra[i], 10, Barra, i, false, false);
+                validaCampo(Enxoval[i], 15, Enxoval, i, false, false);
+                validaCampo(Descricao[i], 60, Descricao, i, false, false);
+                validaCampo(Cor[i], 4, Cor, i, false, false);
+                validaCampo(Tamanho[i], 2, Tamanho, i, false, false);
+                validaCampo(QtdHigienizações[i], 8, QtdHigienizações, i, false, false);
+                validaCampo(Cadastro[i], 8, Cadastro, i, false, false);
+                validaCampo(Funcionario[i], 6, Funcionario, i, false, false);
+                validaCampo(Nome[i], 100, Nome, i, false, false);
+                validaCampo(Armario[i], 10, Armario, i, false, false);
+                validaCampo(Localização[i], 20, Localização, i, false, false);
+                validaCampo(Contrato[i], 6, Contrato, i, false, false);
+                validaCampo(Cliente[i], 50, Cliente, i, false, false);
+                validaCampo(Filial[i], 2, Filial, i, false, false);
+                validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
+
+                dr["SQL"] =//novaData = year(data).tostring() + Month(data).tostring() + day(data).tostring()
+                        $"('', " +
+                        $"'{Barra[i]}', " +
+                        $"'', " +
+                        $"'{Enxoval[i]}', " +
+                        $"'{Descricao[i]}', " +
+                        $"'{Tamanho[i]}', " +
+                        $"'{QtdHigienizações[i]}', " +
+                        $"'{Cadastro[i]}', " +
+                        $"'{Funcionario[i]}', " +
+                        $"'{Nome[i]}', " +
+                        $"'{Armario[i]}', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'{Contrato[i]}', " +
+                        $"'{NovoContrato[i]}', " +
+                        $"'{Filial[i]}', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'', " +
+                        $"'{Localização[i]}')";
                 dr["Barras"] = Barra[i];
                 dr["Enxoval"] = Enxoval[i];
                 dr["Descricao"] = Descricao[i];
@@ -302,9 +349,21 @@ namespace ProjectEX
                 dr["Contrato"] = Contrato[i];
                 dr["NovoContrato"] = NovoContrato[i];
                 dr["Cliente"] = tbxNomeCliente.Text;
+                
                 dt.Rows.Add(dr);
             }
             DataGridView1.DataSource = dt;
+        }
+
+        public void validaCampo(string campo, int tamanho, string[] array, int index, bool date, bool armario)
+        {
+            if (isValid(campo))
+            {
+                if (campo.Length > tamanho)
+                {
+                    array[index] = campo.Substring(campo.Length - tamanho);
+                }
+            }
         }
 
         private void btnCopiar_Click(object sender, EventArgs e)
@@ -325,6 +384,14 @@ namespace ProjectEX
             ex.Close();
             carregaLista();
             Utils.CloseExcelCMD();
+        }
+
+        private void tbxNomeCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                carregaLista();
+            }
         }
     }
 }

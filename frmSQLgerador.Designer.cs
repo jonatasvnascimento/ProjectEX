@@ -166,6 +166,7 @@
             this.tbxNomeCliente.Name = "tbxNomeCliente";
             this.tbxNomeCliente.Size = new System.Drawing.Size(496, 23);
             this.tbxNomeCliente.TabIndex = 12;
+            this.tbxNomeCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxNomeCliente_KeyDown);
             // 
             // label3
             // 
