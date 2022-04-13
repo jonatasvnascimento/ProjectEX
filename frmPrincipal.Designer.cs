@@ -132,9 +132,9 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(543, 484);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(42, 17);
+            this.lblVersion.Size = new System.Drawing.Size(52, 17);
             this.lblVersion.TabIndex = 1;
-            this.lblVersion.Text = "1.0.28";
+            this.lblVersion.Text = "Version";
             // 
             // label2
             // 
