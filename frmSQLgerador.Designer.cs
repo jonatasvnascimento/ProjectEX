@@ -47,6 +47,7 @@
             // 
             // tbxGeradorSQL
             // 
+            this.tbxGeradorSQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxGeradorSQL.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbxGeradorSQL.Location = new System.Drawing.Point(341, 33);
             this.tbxGeradorSQL.Multiline = true;
@@ -140,7 +141,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(618, 443);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(374, 33);
+            this.progressBar1.Size = new System.Drawing.Size(374, 51);
             this.progressBar1.TabIndex = 9;
             // 
             // DataGridView1
@@ -162,6 +163,7 @@
             // 
             // tbxNomeCliente
             // 
+            this.tbxNomeCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxNomeCliente.Location = new System.Drawing.Point(79, 471);
             this.tbxNomeCliente.Name = "tbxNomeCliente";
             this.tbxNomeCliente.Size = new System.Drawing.Size(496, 23);
@@ -182,6 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1266, 527);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNomeCliente);

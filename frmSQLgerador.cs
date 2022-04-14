@@ -215,13 +215,6 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
-            if (tbxNomeCliente.Text == "")
-            {
-                MessageBox.Show("Informe o Nome do cliente");
-                return;
-            }
-           
-
             dt.Columns.Add("SQL", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
             dt.Columns.Add("Enxoval", typeof(string));
@@ -299,17 +292,18 @@ namespace ProjectEX
                 validaCampo(Cor[i], 4, Cor, i, false, false);
                 validaCampo(Tamanho[i], 2, Tamanho, i, false, false);
                 validaCampo(QtdHigienizações[i], 8, QtdHigienizações, i, false, false);
-                validaCampo(Cadastro[i], 8, Cadastro, i, false, false);
+                //validaCampo(Cadastro[i], 8, Cadastro, i, true, false);
+                validaCampo(Cadastro[i], 50, Cadastro, i, true, false);
                 validaCampo(Funcionario[i], 6, Funcionario, i, false, false);
                 validaCampo(Nome[i], 100, Nome, i, false, false);
-                validaCampo(Armario[i], 10, Armario, i, false, false);
+                validaCampo(Armario[i], 10, Armario, i, false, true);
                 validaCampo(Localização[i], 20, Localização, i, false, false);
                 validaCampo(Contrato[i], 6, Contrato, i, false, false);
                 validaCampo(Cliente[i], 50, Cliente, i, false, false);
                 validaCampo(Filial[i], 2, Filial, i, false, false);
                 validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
 
-                dr["SQL"] =//novaData = year(data).tostring() + Month(data).tostring() + day(data).tostring()
+                dr["SQL"] =
                         $"('', " +
                         $"'{Barra[i]}', " +
                         $"'', " +
@@ -323,8 +317,8 @@ namespace ProjectEX
                         $"'{Armario[i]}', " +
                         $"'', " +
                         $"'', " +
-                        $"'{Contrato[i]}', " +
                         $"'{NovoContrato[i]}', " +
+                        $"'{Contrato[i]}', " +
                         $"'{Filial[i]}', " +
                         $"'', " +
                         $"'', " +
@@ -334,7 +328,7 @@ namespace ProjectEX
                         $"'', " +
                         $"'', " +
                         $"'', " +
-                        $"'{Localização[i]}')";
+                        $"'{Localização[i]}'),";
                 dr["Barras"] = Barra[i];
                 dr["Enxoval"] = Enxoval[i];
                 dr["Descricao"] = Descricao[i];
@@ -364,6 +358,25 @@ namespace ProjectEX
                     array[index] = campo.Substring(campo.Length - tamanho);
                 }
             }
+
+            if (armario)
+            {
+                if (Armario[index] == "")
+                {
+                array[index] = "000000";
+                }
+            }
+
+            if (isValid(campo))
+            {
+                if (date)
+                {
+                    var newDate = $"{campo.Substring(6, 4)}{campo.Substring(3, 2)}{campo.Substring(0, 2)}";
+                    //MessageBox.Show(newDate);
+                    array[index] = newDate;
+                }
+            }
+           
         }
 
         private void btnCopiar_Click(object sender, EventArgs e)
