@@ -22,7 +22,10 @@ namespace ProjectEX
         public object[,] ObjectRange { get; private set; }
 
         public string TableName { get; set; }
+        string[] Indice = new string[0];
         string[] Barra = new string[0];
+        string[] NovoProduto = new string[0];
+        string[] ItemCTR = new string[0];
         string[] Enxoval = new string[0];
         string[] Descricao = new string[0];
         string[] Cor = new string[0];
@@ -31,13 +34,16 @@ namespace ProjectEX
         string[] Cadastro = new string[0];
         string[] Funcionario = new string[0];
         string[] Nome = new string[0];
+        string[] NumArm = new string[0];
+        string[] NumGav = new string[0];
         string[] Localização = new string[0];
+        string[] CodSet = new string[0];
+        string[] DescSetor = new string[0];
         string[] Filial = new string[0];
-        string[] Contrato = new string[0];
         string[] NovoContrato = new string[0];
+        string[] Contrato = new string[0];
         string[] Cliente = new string[0];
         string[] SQL = new string[0];
-        string[] Armario = new string[0];
 
 
         public frmSQLgerador()
@@ -199,13 +205,6 @@ namespace ProjectEX
 
         private void frmSQLgerador_Load(object sender, EventArgs e)
         {
-            //this.DataGridView1.DataSource = "";
-            //this.DataGridView1.ColumnCount = 5;
-            //this.DataGridView1.Rows.Add(new string[] { "A", "B", "C", "D", "E" });
-            //this.DataGridView1.Rows.Add(new string[] { "F", "G", "H", "I", "J" });
-            //this.DataGridView1.Rows.Add(new string[] { "K", "L", "M", "N", "O" });
-            //this.DataGridView1.Rows.Add(new string[] { "P", "Q", "R", "S", "T" });
-            //this.DataGridView1.Rows.Add(new string[] { "U", "V", "W", "X", "Y" });
             this.DataGridView1.AutoResizeColumns();
             this.DataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
         }
@@ -215,8 +214,11 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
+
             dt.Columns.Add("SQL", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
+            dt.Columns.Add("NovoProduto", typeof(string));
+            dt.Columns.Add("ItemCTR", typeof(string));
             dt.Columns.Add("Enxoval", typeof(string));
             dt.Columns.Add("Descricao", typeof(string));
             dt.Columns.Add("Cor", typeof(string));
@@ -225,18 +227,24 @@ namespace ProjectEX
             dt.Columns.Add("Cadastro", typeof(string));
             dt.Columns.Add("Funcionário", typeof(string));
             dt.Columns.Add("Nome", typeof(string));
+            dt.Columns.Add("NumArm", typeof(string));
+            dt.Columns.Add("NumGav", typeof(string));
             dt.Columns.Add("Localização", typeof(string));
+            dt.Columns.Add("CodSet", typeof(string));
+            dt.Columns.Add("DescSetor", typeof(string));
             dt.Columns.Add("Filial", typeof(string));
             dt.Columns.Add("Contrato", typeof(string));
             dt.Columns.Add("NovoContrato", typeof(string));
             dt.Columns.Add("Cliente", typeof(string));
-            dt.Columns.Add("Armario", typeof(string));
 
             Excel ex = new Excel(path, 1);
             FinalRow = ex.LastRowTotal(ex.ws);
             ObjectRange = ex.RangeLine(TableName);
 
+
             Barra = new string[FinalRow];
+            NovoProduto = new string[FinalRow];
+            ItemCTR = new string[FinalRow];
             Enxoval = new string[FinalRow];
             Descricao = new string[FinalRow];
             Cor = new string[FinalRow];
@@ -245,12 +253,16 @@ namespace ProjectEX
             Cadastro = new string[FinalRow];
             Funcionario = new string[FinalRow];
             Nome = new string[FinalRow];
+            NumArm = new string[FinalRow];
+            NumGav = new string[FinalRow];
             Localização = new string[FinalRow];
+            CodSet = new string[FinalRow];
+            DescSetor = new string[FinalRow];
             Filial = new string[FinalRow];
-            Contrato = new string[FinalRow];
+            Filial = new string[FinalRow];
             NovoContrato = new string[FinalRow];
+            Contrato = new string[FinalRow];
             Cliente = new string[FinalRow];
-            Armario = new string[FinalRow];
 
             Utils.CloseExcelCMD();
             try
@@ -260,6 +272,8 @@ namespace ProjectEX
                     if (i < FinalRow - 1)
                     {
                         Barra[i - 1] = valueField(ObjectRange[i, 2]);
+                        NovoProduto[i - 1] = valueField(ObjectRange[i, 3]);
+                        ItemCTR[i - 1] = valueField(ObjectRange[i, 4]);
                         Enxoval[i - 1] = valueField(ObjectRange[i, 5]);
                         Descricao[i - 1] = valueField(ObjectRange[i, 6]);
                         Cor[i - 1] = valueField(ObjectRange[i, 7]);
@@ -268,11 +282,14 @@ namespace ProjectEX
                         Cadastro[i - 1] = valueField(ObjectRange[i, 10]);
                         Funcionario[i - 1] = valueField(ObjectRange[i, 11]);
                         Nome[i - 1] = valueField(ObjectRange[i, 12]);
-                        Armario[i - 1] = valueField(ObjectRange[i, 13]);
+                        NumArm[i - 1] = valueField(ObjectRange[i, 13]);
+                        NumGav[i - 1] = valueField(ObjectRange[i, 14]);
                         Localização[i - 1] = valueField(ObjectRange[i, 15]);
+                        CodSet[i - 1] = valueField(ObjectRange[i, 16]);
+                        DescSetor[i - 1] = valueField(ObjectRange[i, 17]);
                         Filial[i - 1] = valueField(ObjectRange[i, 18]);
-                        Contrato[i - 1] = valueField(ObjectRange[i, 20]);
                         NovoContrato[i - 1] = valueField(ObjectRange[i, 19]);
+                        Contrato[i - 1] = valueField(ObjectRange[i, 20]);
                     }
                 }
 
@@ -287,26 +304,30 @@ namespace ProjectEX
                 DataRow dr = dt.NewRow();
                 
                 validaCampo(Barra[i], 10, Barra, i, false, false);
+                validaCampo(NovoProduto[i], 15, NovoProduto, i, false, false);
+                validaCampo(ItemCTR[i], 2, ItemCTR, i, false, false);
                 validaCampo(Enxoval[i], 15, Enxoval, i, false, false);
                 validaCampo(Descricao[i], 60, Descricao, i, false, false);
                 validaCampo(Cor[i], 4, Cor, i, false, false);
                 validaCampo(Tamanho[i], 2, Tamanho, i, false, false);
                 validaCampo(QtdHigienizações[i], 8, QtdHigienizações, i, false, false);
-                //validaCampo(Cadastro[i], 8, Cadastro, i, true, false);
-                validaCampo(Cadastro[i], 50, Cadastro, i, true, false);
+                validaCampo(Cadastro[i], 8, Cadastro, i, true, false);
                 validaCampo(Funcionario[i], 6, Funcionario, i, false, false);
                 validaCampo(Nome[i], 100, Nome, i, false, false);
-                validaCampo(Armario[i], 10, Armario, i, false, true);
+                validaCampo(NumArm[i], 6, NumArm, i, false, true);
+                validaCampo(NumGav[i], 6, NumGav, i, false, true);
                 validaCampo(Localização[i], 20, Localização, i, false, false);
-                validaCampo(Contrato[i], 6, Contrato, i, false, false);
-                validaCampo(Cliente[i], 50, Cliente, i, false, false);
+                validaCampo(CodSet[i], 6, CodSet, i, false, false);
+                validaCampo(DescSetor[i], 20, DescSetor, i, false, false);
                 validaCampo(Filial[i], 2, Filial, i, false, false);
                 validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
+                validaCampo(Contrato[i], 6, Contrato, i, false, false);
+                validaCampo(Cliente[i], 50, Cliente, i, false, false);
 
                 dr["SQL"] =
                         $"('', " +
                         $"'{Barra[i]}', " +
-                        $"'', " +
+                        $"'{NovoProduto[i]}', " +
                         $"'{Enxoval[i]}', " +
                         $"'{Descricao[i]}', " +
                         $"'{Tamanho[i]}', " +
@@ -314,7 +335,7 @@ namespace ProjectEX
                         $"'{Cadastro[i]}', " +
                         $"'{Funcionario[i]}', " +
                         $"'{Nome[i]}', " +
-                        $"'{Armario[i]}', " +
+                        $"'{NumArm[i]}', " +
                         $"'', " +
                         $"'', " +
                         $"'{NovoContrato[i]}', " +
@@ -330,6 +351,8 @@ namespace ProjectEX
                         $"'', " +
                         $"'{Localização[i]}'),";
                 dr["Barras"] = Barra[i];
+                dr["NovoProduto"] = NovoProduto[i];
+                dr["ItemCTR"] = ItemCTR[i];
                 dr["Enxoval"] = Enxoval[i];
                 dr["Descricao"] = Descricao[i];
                 dr["Cor"] = Cor[i];
@@ -338,7 +361,11 @@ namespace ProjectEX
                 dr["Cadastro"] = Cadastro[i];
                 dr["Funcionário"] = Funcionario[i];
                 dr["Nome"] = Nome[i];
+                dr["NumArm"] = NumArm[i];
+                dr["NumGav"] = NumGav[i];
                 dr["Localização"] = Localização[i];
+                dr["CodSet"] = CodSet[i];
+                dr["DescSetor"] = DescSetor[i];
                 dr["Filial"] = Filial[i];
                 dr["Contrato"] = Contrato[i];
                 dr["NovoContrato"] = NovoContrato[i];
@@ -361,7 +388,7 @@ namespace ProjectEX
 
             if (armario)
             {
-                if (Armario[index] == "")
+                if (NumArm[index] == "")
                 {
                 array[index] = "000000";
                 }
