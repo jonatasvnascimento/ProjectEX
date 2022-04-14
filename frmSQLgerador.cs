@@ -63,11 +63,15 @@ namespace ProjectEX
         private void btnGerarSQL_Click(object sender, EventArgs e)
         {
             copyDataGrid();
-            carregaLista();
         }
 
         public void copyDataGrid()
         {
+            progressBar1.Value = 0;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
+            progressBar1.Visible = true;
+
             if (this.DataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
             {
                 try
@@ -78,6 +82,8 @@ namespace ProjectEX
 
                     // Replace the text box contents with the clipboard text.
                     this.tbxGeradorSQL.Text = Clipboard.GetText();
+                    progressBar1.Value = 100;
+                    MessageBox.Show("Criado com sucesso");
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
@@ -85,6 +91,8 @@ namespace ProjectEX
                         "The Clipboard could not be accessed. Please try again.";
                 }
             }
+            progressBar1.Visible = false;
+
         }
 
         DataTableCollection TableCollection;
@@ -150,9 +158,7 @@ namespace ProjectEX
         {
             Excel ex = new Excel(path, 1);
 
-            progressBar1.Value = 0;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = FinalRow;
+           
 
 
             if (!String.IsNullOrEmpty(path))
@@ -214,6 +220,7 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
+           
 
             dt.Columns.Add("SQL", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
@@ -267,10 +274,16 @@ namespace ProjectEX
             Utils.CloseExcelCMD();
             try
             {
+                progressBar1.Value = 0;
+                progressBar1.Minimum = 0;
+                progressBar1.Maximum = FinalRow;
+                progressBar1.Visible = true;
+
                 for (int i = 1; i < FinalRow; i++)
                 {
                     if (i < FinalRow - 1)
                     {
+                        progressBar1.Value = i;
                         Barra[i - 1] = valueField(ObjectRange[i, 2]);
                         NovoProduto[i - 1] = valueField(ObjectRange[i, 3]);
                         ItemCTR[i - 1] = valueField(ObjectRange[i, 4]);
@@ -292,7 +305,8 @@ namespace ProjectEX
                         Contrato[i - 1] = valueField(ObjectRange[i, 20]);
                     }
                 }
-
+                MessageBox.Show("Importação com sucesso");
+                progressBar1.Visible = false;
             }
             catch (Exception err)
             {
@@ -303,6 +317,7 @@ namespace ProjectEX
             {//codbarr = slice(-6, 6, "000000" + variavel)
                 DataRow dr = dt.NewRow();
                 
+
                 validaCampo(Barra[i], 10, Barra, i, false, false);
                 validaCampo(NovoProduto[i], 15, NovoProduto, i, false, false);
                 validaCampo(ItemCTR[i], 2, ItemCTR, i, false, false);

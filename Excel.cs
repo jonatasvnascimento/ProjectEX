@@ -106,7 +106,6 @@ namespace ProjectEX
         {
             _Excel.Range lastCell = wks.Cells.SpecialCells(_Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
             return lastCell.Row;
-
         }
         public object[,] RangeLine(string TableName)
         {

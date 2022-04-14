@@ -49,11 +49,11 @@
             // 
             this.tbxGeradorSQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxGeradorSQL.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxGeradorSQL.Location = new System.Drawing.Point(341, 33);
+            this.tbxGeradorSQL.Location = new System.Drawing.Point(12, 334);
             this.tbxGeradorSQL.Multiline = true;
             this.tbxGeradorSQL.Name = "tbxGeradorSQL";
             this.tbxGeradorSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxGeradorSQL.Size = new System.Drawing.Size(910, 401);
+            this.tbxGeradorSQL.Size = new System.Drawing.Size(1242, 284);
             this.tbxGeradorSQL.TabIndex = 0;
             // 
             // label1
@@ -79,7 +79,7 @@
             // 
             // btnGerarSQL
             // 
-            this.btnGerarSQL.Location = new System.Drawing.Point(1014, 440);
+            this.btnGerarSQL.Location = new System.Drawing.Point(1013, 624);
             this.btnGerarSQL.Name = "btnGerarSQL";
             this.btnGerarSQL.Size = new System.Drawing.Size(75, 23);
             this.btnGerarSQL.TabIndex = 3;
@@ -89,7 +89,7 @@
             // 
             // btnInsertDB
             // 
-            this.btnInsertDB.Location = new System.Drawing.Point(1095, 440);
+            this.btnInsertDB.Location = new System.Drawing.Point(1094, 624);
             this.btnInsertDB.Name = "btnInsertDB";
             this.btnInsertDB.Size = new System.Drawing.Size(75, 23);
             this.btnInsertDB.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             // btnCopiar
             // 
-            this.btnCopiar.Location = new System.Drawing.Point(1176, 440);
+            this.btnCopiar.Location = new System.Drawing.Point(1175, 624);
             this.btnCopiar.Name = "btnCopiar";
             this.btnCopiar.Size = new System.Drawing.Size(75, 23);
             this.btnCopiar.TabIndex = 5;
@@ -110,7 +110,7 @@
             // 
             this.txtFilename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilename.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFilename.Location = new System.Drawing.Point(79, 443);
+            this.txtFilename.Location = new System.Drawing.Point(78, 627);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.ReadOnly = true;
             this.txtFilename.Size = new System.Drawing.Size(496, 22);
@@ -120,7 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 443);
+            this.label2.Location = new System.Drawing.Point(11, 627);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 7;
@@ -129,7 +129,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBrowse.Location = new System.Drawing.Point(581, 443);
+            this.btnBrowse.Location = new System.Drawing.Point(580, 627);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(31, 23);
             this.btnBrowse.TabIndex = 6;
@@ -139,9 +139,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(618, 443);
+            this.progressBar1.Location = new System.Drawing.Point(12, 595);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(374, 51);
+            this.progressBar1.Size = new System.Drawing.Size(1225, 23);
             this.progressBar1.TabIndex = 9;
             // 
             // DataGridView1
@@ -150,13 +150,13 @@
             this.DataGridView1.Location = new System.Drawing.Point(12, 33);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowTemplate.Height = 25;
-            this.DataGridView1.Size = new System.Drawing.Size(323, 401);
+            this.DataGridView1.Size = new System.Drawing.Size(1242, 295);
             this.DataGridView1.TabIndex = 10;
             // 
             // comboBoxSheet
             // 
             this.comboBoxSheet.FormattingEnabled = true;
-            this.comboBoxSheet.Location = new System.Drawing.Point(79, 500);
+            this.comboBoxSheet.Location = new System.Drawing.Point(78, 684);
             this.comboBoxSheet.Name = "comboBoxSheet";
             this.comboBoxSheet.Size = new System.Drawing.Size(121, 23);
             this.comboBoxSheet.TabIndex = 11;
@@ -164,7 +164,7 @@
             // tbxNomeCliente
             // 
             this.tbxNomeCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxNomeCliente.Location = new System.Drawing.Point(79, 471);
+            this.tbxNomeCliente.Location = new System.Drawing.Point(78, 655);
             this.tbxNomeCliente.Name = "tbxNomeCliente";
             this.tbxNomeCliente.Size = new System.Drawing.Size(496, 23);
             this.tbxNomeCliente.TabIndex = 12;
@@ -174,7 +174,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 473);
+            this.label3.Location = new System.Drawing.Point(11, 657);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 13;
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1266, 527);
+            this.ClientSize = new System.Drawing.Size(1266, 715);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNomeCliente);
             this.Controls.Add(this.comboBoxSheet);
