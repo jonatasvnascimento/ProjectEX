@@ -423,7 +423,6 @@ namespace ProjectEX
 
         private void btnCopiar_Click(object sender, EventArgs e)
         {
-            injectSQL();
         }
         public void injectSQL()
         {
