@@ -321,7 +321,7 @@ namespace ProjectEX
                 validaCampo(DescSetor[i], 20, DescSetor, i, false, false);
                 validaCampo(Filial[i], 2, Filial, i, false, false);
                 validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
-                validaCampo(Contrato[i], 6, Contrato, i, false, false);
+                validaCampo(Contrato[i], 50, Contrato, i, false, false);
                 validaCampo(Cliente[i], 50, Cliente, i, false, false);
 
                 dr["SQL"] =
