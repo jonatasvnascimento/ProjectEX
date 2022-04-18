@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Diagnostics;
+using ProjectEX.model;
+using ProjectEX.ultils;
 
 namespace ProjectEX
 {
@@ -20,6 +22,8 @@ namespace ProjectEX
         public string path { get; private set; }
         public int FinalRow { get; private set; }
         public object[,] ObjectRange { get; private set; }
+
+        public List<CamposExcelModel> camposExcelModels = new List<CamposExcelModel>();
 
         public string TableName { get; set; }
         string[] Indice = new string[0];
@@ -216,7 +220,15 @@ namespace ProjectEX
         }
         private string valueField(object text) => isValid(text) ? text.ToString() : Convert.ToString(text);
         private bool isValid(object value) => value != null && value.GetType() == typeof(string);
+
         private void carregaLista()
+        {
+            var ret = NewExcel.LoadValues(path);
+            this.DataGridView1.DataSource = ret;
+            this.DataGridView1.Refresh();
+        }
+
+        private void carregaLista2()
         {
             System.Data.DataTable dt = new();
 
@@ -318,26 +330,26 @@ namespace ProjectEX
                 DataRow dr = dt.NewRow();
                 
 
-                validaCampo(Barra[i], 10, Barra, i, false, false);
-                validaCampo(NovoProduto[i], 15, NovoProduto, i, false, false);
-                validaCampo(ItemCTR[i], 2, ItemCTR, i, false, false);
-                validaCampo(Enxoval[i], 15, Enxoval, i, false, false);
-                validaCampo(Descricao[i], 60, Descricao, i, false, false);
-                validaCampo(Cor[i], 4, Cor, i, false, false);
-                validaCampo(Tamanho[i], 2, Tamanho, i, false, false);
-                validaCampo(QtdHigienizações[i], 8, QtdHigienizações, i, false, false);
-                validaCampo(Cadastro[i], 8, Cadastro, i, true, false);
-                validaCampo(Funcionario[i], 6, Funcionario, i, false, false);
-                validaCampo(Nome[i], 100, Nome, i, false, false);
-                validaCampo(NumArm[i], 6, NumArm, i, false, true);
-                validaCampo(NumGav[i], 6, NumGav, i, false, true);
-                validaCampo(Localização[i], 20, Localização, i, false, false);
-                validaCampo(CodSet[i], 6, CodSet, i, false, false);
-                validaCampo(DescSetor[i], 20, DescSetor, i, false, false);
-                validaCampo(Filial[i], 2, Filial, i, false, false);
-                validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
-                validaCampo(Contrato[i], 50, Contrato, i, false, false);
-                validaCampo(Cliente[i], 50, Cliente, i, false, false);
+                validaCampo(Barra[i],               10, Barra, i, false, false);
+                validaCampo(NovoProduto[i],         15, NovoProduto, i, false, false);
+                validaCampo(ItemCTR[i],             2, ItemCTR, i, false, false);
+                validaCampo(Enxoval[i],             15, Enxoval, i, false, false);
+                validaCampo(Descricao[i],           60, Descricao, i, false, false);
+                validaCampo(Cor[i],                 4, Cor, i, false, false);
+                validaCampo(Tamanho[i],             2, Tamanho, i, false, false);
+                validaCampo(QtdHigienizações[i],    8, QtdHigienizações, i, false, false);
+                validaCampo(Cadastro[i],            8, Cadastro, i, true, false);
+                validaCampo(Funcionario[i],         6, Funcionario, i, false, false);
+                validaCampo(Nome[i],                100, Nome, i, false, false);
+                validaCampo(NumArm[i],              6, NumArm, i, false, true);
+                validaCampo(NumGav[i],              6, NumGav, i, false, true);
+                validaCampo(Localização[i],         20, Localização, i, false, false);
+                validaCampo(CodSet[i],              6, CodSet, i, false, false);
+                validaCampo(DescSetor[i],           20, DescSetor, i, false, false);
+                validaCampo(Filial[i],              2, Filial, i, false, false);
+                validaCampo(NovoContrato[i],        6, NovoContrato, i, false, false);
+                validaCampo(Contrato[i],            50, Contrato, i, false, false);
+                validaCampo(Cliente[i],             50, Cliente, i, false, false);
 
                 dr["SQL"] =
                         $"('', " +

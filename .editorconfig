@@ -23,3 +23,6 @@ dotnet_diagnostic.IDE0001.severity = none
 
 # IDE0022: Use block body for methods
 csharp_style_expression_bodied_methods = false
+
+# CA1051: Do not declare visible instance fields
+dotnet_diagnostic.CA1051.severity = none
