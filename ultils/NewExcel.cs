@@ -30,7 +30,6 @@ namespace ProjectEX.ultils
                     {
                         CamposExcelModel campos = new CamposExcelModel();
 
-
                         campos.Barra = valueField(sheet.Cells[row, 2].Text).validaCampo(10);
                         campos.NovoProduto = valueField(sheet.Cells[row, 3].Text).validaCampo(15);
                         campos.ItemCTR = valueField(sheet.Cells[row, 4].Text).validaCampo(2);
@@ -87,9 +86,8 @@ namespace ProjectEX.ultils
                     campo = $"{campo.Substring(6, 4)}{campo.Substring(3, 2)}{campo.Substring(0, 2)}";
                 }
             }
-
             return campo;
-
         }
+       
     }
 }

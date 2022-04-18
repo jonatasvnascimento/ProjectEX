@@ -42,6 +42,7 @@
             this.comboBoxSheet = new System.Windows.Forms.ComboBox();
             this.tbxNomeCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnTxt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,12 +181,23 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Cliente";
             // 
+            // btnTxt
+            // 
+            this.btnTxt.Location = new System.Drawing.Point(932, 624);
+            this.btnTxt.Name = "btnTxt";
+            this.btnTxt.Size = new System.Drawing.Size(75, 23);
+            this.btnTxt.TabIndex = 14;
+            this.btnTxt.Text = "Gerar TXT";
+            this.btnTxt.UseVisualStyleBackColor = true;
+            this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
+            // 
             // frmSQLgerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1266, 715);
+            this.Controls.Add(this.btnTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNomeCliente);
             this.Controls.Add(this.comboBoxSheet);
@@ -227,5 +239,6 @@
         private System.Windows.Forms.ComboBox comboBoxSheet;
         private System.Windows.Forms.TextBox tbxNomeCliente;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnTxt;
     }
 }

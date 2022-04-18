@@ -20,10 +20,12 @@ namespace ProjectEX
     public partial class frmSQLgerador : Form
     {
         public string path { get; private set; }
+        public string ExportPath { get; private set; }
         public int FinalRow { get; private set; }
         public object[,] ObjectRange { get; private set; }
 
         public List<CamposExcelModel> camposExcelModels = new List<CamposExcelModel>();
+        List<CamposExcelModel> ret;
 
         public string TableName { get; set; }
         string[] Indice = new string[0];
@@ -107,110 +109,16 @@ namespace ProjectEX
         public void openFileExcel()
         {
             //Filtro para acher as planilhas
-            Utils.CloseExcelCMD();
             using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*xls" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //mostra o nome do arquivo na txt
                     txtFilename.Text = openFileDialog.FileName;
                     path = openFileDialog.FileName;
-                    //carrega o arquivo para leiturarrr
-                    System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-                    try
-                    {
-                        using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
-                        {
-
-                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                            {
-
-                                //tranforma em um dataset
-                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                                {
-
-                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                                    {
-                                        UseHeaderRow = true,
-                                    }
-                                });
-                                TableCollection = result.Tables;
-                                comboBoxSheet.Items.Clear();
-
-                                foreach (System.Data.DataTable table in TableCollection)
-                                {
-                                    comboBoxSheet.Items.Add(table.TableName);
-                                    TableName = table.TableName;
-                                    reader.Close();
-                                }
-
-                                carregaLista();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show($"Error:{ex.Message}");
-                    }
-
+                    carregaLista();
                 }
+                //Utils.CloseExcelCMD();
             }
-        }
-        public void getExcelValues()
-        {
-            Excel ex = new Excel(path, 1);
-
-           
-
-
-            if (!String.IsNullOrEmpty(path))
-            {
-                FinalRow = ex.LastRowTotal(ex.ws);
-                ObjectRange = ex.RangeLine("HPRO");
-
-               
-                progressBar1.Visible = true;
-
-                tbxGeradorSQL.Text = "('','CODBAR','PROUT','OLDPRO','DESPRO','TAM','QTD','DATA','CODFUN','NOMFUN','NUMARM','CODSET','DESSET','CONTR','OLDCLI','FILCTR','CODIMP','DTIMP','OBS','ITEMCT','DELETE','RECNO','NUMGAV','MSFIL','MSEMP','ARMLOCALI')";
-                for (int i = 1; i < 5000; i++)
-                {
-                    progressBar1.Value = i - 1;
-                    tbxGeradorSQL.AppendText(
-                        $"('', " +
-                        $"'{Barra[i]}', " +
-                        $"'', " +
-                        $"'{Enxoval[i]}', " +
-                        $"'{Descricao[i]}', " +
-                        $"'{Tamanho[i]}', " +
-                        $"'{QtdHigienizações[i]}', " +
-                        $"'{Cadastro[i]}', " +
-                        $"'{Funcionario[i]}', " +
-                        $"'{Nome[i]}', " +
-                        $"'000000', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'{Contrato[i]}', " +
-                        $"'{Cliente[i]}', " +
-                        $"'{Filial[i]}', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'', " +
-                        $"'{Localização[i]}')");
-
-                    tbxGeradorSQL.AppendText(Environment.NewLine);
-
-                }
-                progressBar1.Visible = false;
-
-            }
-
         }
 
         private void frmSQLgerador_Load(object sender, EventArgs e)
@@ -223,7 +131,7 @@ namespace ProjectEX
 
         private void carregaLista()
         {
-            var ret = NewExcel.LoadValues(path);
+            ret = NewExcel.LoadValues(path);
             this.DataGridView1.DataSource = ret;
             this.DataGridView1.Refresh();
         }
@@ -232,7 +140,7 @@ namespace ProjectEX
         {
             System.Data.DataTable dt = new();
 
-           
+
 
             dt.Columns.Add("SQL", typeof(string));
             dt.Columns.Add("Barras", typeof(string));
@@ -328,28 +236,28 @@ namespace ProjectEX
             for (int i = 1; i < FinalRow; i++)
             {//codbarr = slice(-6, 6, "000000" + variavel)
                 DataRow dr = dt.NewRow();
-                
 
-                validaCampo(Barra[i],               10, Barra, i, false, false);
-                validaCampo(NovoProduto[i],         15, NovoProduto, i, false, false);
-                validaCampo(ItemCTR[i],             2, ItemCTR, i, false, false);
-                validaCampo(Enxoval[i],             15, Enxoval, i, false, false);
-                validaCampo(Descricao[i],           60, Descricao, i, false, false);
-                validaCampo(Cor[i],                 4, Cor, i, false, false);
-                validaCampo(Tamanho[i],             2, Tamanho, i, false, false);
-                validaCampo(QtdHigienizações[i],    8, QtdHigienizações, i, false, false);
-                validaCampo(Cadastro[i],            8, Cadastro, i, true, false);
-                validaCampo(Funcionario[i],         6, Funcionario, i, false, false);
-                validaCampo(Nome[i],                100, Nome, i, false, false);
-                validaCampo(NumArm[i],              6, NumArm, i, false, true);
-                validaCampo(NumGav[i],              6, NumGav, i, false, true);
-                validaCampo(Localização[i],         20, Localização, i, false, false);
-                validaCampo(CodSet[i],              6, CodSet, i, false, false);
-                validaCampo(DescSetor[i],           20, DescSetor, i, false, false);
-                validaCampo(Filial[i],              2, Filial, i, false, false);
-                validaCampo(NovoContrato[i],        6, NovoContrato, i, false, false);
-                validaCampo(Contrato[i],            50, Contrato, i, false, false);
-                validaCampo(Cliente[i],             50, Cliente, i, false, false);
+
+                validaCampo(Barra[i], 10, Barra, i, false, false);
+                validaCampo(NovoProduto[i], 15, NovoProduto, i, false, false);
+                validaCampo(ItemCTR[i], 2, ItemCTR, i, false, false);
+                validaCampo(Enxoval[i], 15, Enxoval, i, false, false);
+                validaCampo(Descricao[i], 60, Descricao, i, false, false);
+                validaCampo(Cor[i], 4, Cor, i, false, false);
+                validaCampo(Tamanho[i], 2, Tamanho, i, false, false);
+                validaCampo(QtdHigienizações[i], 8, QtdHigienizações, i, false, false);
+                validaCampo(Cadastro[i], 8, Cadastro, i, true, false);
+                validaCampo(Funcionario[i], 6, Funcionario, i, false, false);
+                validaCampo(Nome[i], 100, Nome, i, false, false);
+                validaCampo(NumArm[i], 6, NumArm, i, false, true);
+                validaCampo(NumGav[i], 6, NumGav, i, false, true);
+                validaCampo(Localização[i], 20, Localização, i, false, false);
+                validaCampo(CodSet[i], 6, CodSet, i, false, false);
+                validaCampo(DescSetor[i], 20, DescSetor, i, false, false);
+                validaCampo(Filial[i], 2, Filial, i, false, false);
+                validaCampo(NovoContrato[i], 6, NovoContrato, i, false, false);
+                validaCampo(Contrato[i], 50, Contrato, i, false, false);
+                validaCampo(Cliente[i], 50, Cliente, i, false, false);
 
                 dr["SQL"] =
                         $"('', " +
@@ -397,7 +305,7 @@ namespace ProjectEX
                 dr["Contrato"] = Contrato[i];
                 dr["NovoContrato"] = NovoContrato[i];
                 dr["Cliente"] = tbxNomeCliente.Text;
-                
+
                 dt.Rows.Add(dr);
             }
             DataGridView1.DataSource = dt;
@@ -417,7 +325,7 @@ namespace ProjectEX
             {
                 if (NumArm[index] == "")
                 {
-                array[index] = "000000";
+                    array[index] = "000000";
                 }
             }
 
@@ -430,33 +338,38 @@ namespace ProjectEX
                     array[index] = newDate;
                 }
             }
-           
+
         }
 
         private void btnCopiar_Click(object sender, EventArgs e)
         {
         }
-        public void injectSQL()
-        {
-            Excel ex = new Excel(path, 1);
-            string sql = "('','CODBAR','PROUT','OLDPRO','DESPRO','TAM','QTD','DATA','CODFUN','NOMFUN','NUMARM','CODSET','DESSET','CONTR','OLDCLI','FILCTR','CODIMP','DTIMP','OBS','ITEMCT','DELETE','RECNO','NUMGAV','MSFIL','MSEMP','ARMLOCALI')";
-            string teste = "=SUM(V2:V10)";
-
-            //ex.WriteRange(sql, "W", 1, "W", 1);
-            //ex.WriteRange(teste, "W", 2, "W", 10);
-            //ex.formulaInExcel("U2","U10", teste);
-
-            ex.Save();
-            ex.Close();
-            carregaLista();
-            Utils.CloseExcelCMD();
-        }
-
         private void tbxNomeCliente_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 carregaLista();
+            }
+        }
+
+        private void btnTxt_Click(object sender, EventArgs e)
+        {
+            ExportFile();
+        }
+        public void ExportFile()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() {Filter="SQL Documents | *.sql", ValidateNames = true })
+            {
+                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportPath = saveFileDialog.FileName;
+                    
+                    using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
+                    {
+                        ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
+                    }
+                    
+                }
             }
         }
     }
