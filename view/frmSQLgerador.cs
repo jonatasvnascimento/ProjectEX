@@ -363,11 +363,13 @@ namespace ProjectEX
                 if(saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     ExportPath = saveFileDialog.FileName;
+
+                    File.WriteAllLines(ExportPath, ret.Select(c => c.SQL + Environment.NewLine).ToList());
                     
-                    using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
-                    {
-                        ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
-                    }
+                    //using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
+                    //{
+                    //    ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
+                    //}
                     
                 }
             }
