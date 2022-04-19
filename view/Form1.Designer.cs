@@ -58,10 +58,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 34);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1239, 342);
+            this.dataGridView1.Size = new System.Drawing.Size(1239, 358);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
@@ -110,7 +110,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1235, 9);
+            this.label3.Location = new System.Drawing.Point(1235, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 20);
             this.label3.TabIndex = 7;
@@ -120,11 +120,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(12, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 15);
+            this.label4.Size = new System.Drawing.Size(349, 21);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Importação de Dados";
+            this.label4.Text = "Importação de Dados | Panilha de Depara";
             // 
             // btnDepara
             // 

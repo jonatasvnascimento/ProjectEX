@@ -44,12 +44,13 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnGerador);
             this.panel1.Controls.Add(this.tbnDepara);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 510);
@@ -57,51 +58,63 @@
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.btnSair.BackColor = System.Drawing.Color.Gray;
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(0, 461);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(0);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(200, 49);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnGerador
             // 
-            this.btnGerador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.btnGerador.BackColor = System.Drawing.Color.Gray;
             this.btnGerador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGerador.FlatAppearance.BorderSize = 0;
             this.btnGerador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGerador.ForeColor = System.Drawing.Color.White;
             this.btnGerador.Location = new System.Drawing.Point(0, 149);
+            this.btnGerador.Margin = new System.Windows.Forms.Padding(0);
             this.btnGerador.Name = "btnGerador";
+            this.btnGerador.Padding = new System.Windows.Forms.Padding(1);
             this.btnGerador.Size = new System.Drawing.Size(200, 49);
             this.btnGerador.TabIndex = 4;
             this.btnGerador.Text = "Gerador SQL";
+            this.btnGerador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGerador.UseVisualStyleBackColor = false;
             this.btnGerador.Click += new System.EventHandler(this.btnGerador_Click);
             // 
             // tbnDepara
             // 
-            this.tbnDepara.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.tbnDepara.BackColor = System.Drawing.Color.Gray;
             this.tbnDepara.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbnDepara.FlatAppearance.BorderSize = 0;
             this.tbnDepara.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tbnDepara.ForeColor = System.Drawing.Color.White;
             this.tbnDepara.Location = new System.Drawing.Point(0, 100);
+            this.tbnDepara.Margin = new System.Windows.Forms.Padding(0);
             this.tbnDepara.Name = "tbnDepara";
+            this.tbnDepara.Padding = new System.Windows.Forms.Padding(1);
             this.tbnDepara.Size = new System.Drawing.Size(200, 49);
             this.tbnDepara.TabIndex = 3;
             this.tbnDepara.Text = "Leitura e Depara";
+            this.tbnDepara.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tbnDepara.UseVisualStyleBackColor = false;
             this.tbnDepara.Click += new System.EventHandler(this.tbnDepara_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
@@ -110,18 +123,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(52, 40);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(33, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 22);
+            this.label1.Size = new System.Drawing.Size(123, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "ProjectEX";
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.DimGray;
             this.panel3.Controls.Add(this.lblVersion);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 510);
