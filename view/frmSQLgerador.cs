@@ -354,34 +354,15 @@ namespace ProjectEX
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
-            teste(path);
+            ExportExcel(path);
         }
-        public void ExportFile(string newPath2)
-        {
-            var cont = 0;
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "SQL Documents | *.sql", ValidateNames = true })
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ExportPath = saveFileDialog.FileName;
-
-                    //File.WriteAllLines(ExportPath, ret.Select(c => c.SQL + Environment.NewLine).ToList());
-
-                    using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
-                    {
-                        //ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
-                    }
-
-                }
-            }
-        }
-        public void teste(string newPath2)
+        public void ExportExcel(string newPath2)
         {
             if (newPath2 == "")
             {
                 return;
             }
-           // string path = @"C:\Users\jnascimento3\Desktop\teste\teste.txt";
+            // string path = @"C:\Users\jnascimento3\Desktop\teste\teste.txt";
 
             var PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
 
@@ -389,10 +370,12 @@ namespace ProjectEX
             string NameFileBase = Path.GetFileName(path);
             var dadosarq = new FileInfo(newPath2);
 
+           
             var diretoriodestino = @$"{PathImpotacao}\{dadosarq.Name.Replace(dadosarq.Extension, "")}\";
             Directory.CreateDirectory(diretoriodestino);
             var NameFile = diretoriodestino + dadosarq.Name.Replace(dadosarq.Extension, "") + "{0}.sql";
 
+            var newDirectory = @$"{diretoriodestino}\{NameFileImportacao}";
 
             try
             {
@@ -419,10 +402,23 @@ namespace ProjectEX
 
                 });
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+
+
+            if (File.Exists(diretoriodestino))
+            {
+                File.Delete(diretoriodestino);
+            }
+            try
+            {
+                File.Move(newPath2, newDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
