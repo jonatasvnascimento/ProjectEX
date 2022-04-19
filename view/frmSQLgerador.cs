@@ -358,23 +358,20 @@ namespace ProjectEX
         }
         public void ExportExcel(string newPath2)
         {
-            if (newPath2 == "")
+            if (String.IsNullOrEmpty(newPath2))
             {
+                MessageBox.Show("Selecione uma planilha");
                 return;
             }
-            // string path = @"C:\Users\jnascimento3\Desktop\teste\teste.txt";
 
             var PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
-
             string NameFileImportacao = Path.GetFileName(newPath2);
             string NameFileBase = Path.GetFileName(path);
             var dadosarq = new FileInfo(newPath2);
-
            
             var diretoriodestino = @$"{PathImpotacao}\{dadosarq.Name.Replace(dadosarq.Extension, "")}\";
             Directory.CreateDirectory(diretoriodestino);
             var NameFile = diretoriodestino + dadosarq.Name.Replace(dadosarq.Extension, "") + "{0}.sql";
-
             var newDirectory = @$"{diretoriodestino}\{NameFileImportacao}";
 
             try
@@ -400,6 +397,7 @@ namespace ProjectEX
                     sqlinsert.Add(")A(Col1,	Col2,	Col3,	Col4,	Col5,	Col6,	Col7,	Col8,	Col9,	Col10,	Col11,	Col12,	Col13,	Col14,	Col15,	Col16,	Col17,	Col18,	Col19,	Col20,	Col21,	Col22,	Col23,	Col24,	Col25)");
                     File.WriteAllLines(String.Format(NameFile, val.index), sqlinsert);
 
+                    MessageBox.Show("Importação concluida");
                 });
             }
             catch (Exception ex)
