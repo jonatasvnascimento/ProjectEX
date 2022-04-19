@@ -80,11 +80,11 @@
             // 
             // btnGerarSQL
             // 
-            this.btnGerarSQL.Location = new System.Drawing.Point(1013, 624);
+            this.btnGerarSQL.Location = new System.Drawing.Point(995, 624);
             this.btnGerarSQL.Name = "btnGerarSQL";
-            this.btnGerarSQL.Size = new System.Drawing.Size(75, 23);
+            this.btnGerarSQL.Size = new System.Drawing.Size(93, 23);
             this.btnGerarSQL.TabIndex = 3;
-            this.btnGerarSQL.Text = "Gerar SQL";
+            this.btnGerarSQL.Text = "GerarSQL View";
             this.btnGerarSQL.UseVisualStyleBackColor = true;
             this.btnGerarSQL.Click += new System.EventHandler(this.btnGerarSQL_Click);
             // 
@@ -183,11 +183,11 @@
             // 
             // btnTxt
             // 
-            this.btnTxt.Location = new System.Drawing.Point(932, 624);
+            this.btnTxt.Location = new System.Drawing.Point(914, 624);
             this.btnTxt.Name = "btnTxt";
             this.btnTxt.Size = new System.Drawing.Size(75, 23);
             this.btnTxt.TabIndex = 14;
-            this.btnTxt.Text = "Gerar TXT";
+            this.btnTxt.Text = "Import SQL";
             this.btnTxt.UseVisualStyleBackColor = true;
             this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
             // 
