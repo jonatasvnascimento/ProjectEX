@@ -354,25 +354,77 @@ namespace ProjectEX
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
-            ExportFile();
+            teste(path);
         }
-        public void ExportFile()
+        public void ExportFile(string newPath2)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog() {Filter="SQL Documents | *.sql", ValidateNames = true })
+            var cont = 0;
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "SQL Documents | *.sql", ValidateNames = true })
             {
-                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     ExportPath = saveFileDialog.FileName;
 
-                    File.WriteAllLines(ExportPath, ret.Select(c => c.SQL + Environment.NewLine).ToList());
-                    
-                    //using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
-                    //{
-                    //    ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
-                    //}
-                    
+                    //File.WriteAllLines(ExportPath, ret.Select(c => c.SQL + Environment.NewLine).ToList());
+
+                    using (TextWriter textWriter = new StreamWriter(new FileStream(ExportPath, FileMode.Create)))
+                    {
+                        //ret.ForEach(item => textWriter.Write(item.SQL.ToString()));
+                    }
+
                 }
             }
         }
+        public void teste(string newPath2)
+        {
+            if (newPath2 == "")
+            {
+                return;
+            }
+           // string path = @"C:\Users\jnascimento3\Desktop\teste\teste.txt";
+
+            var PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
+
+            string NameFileImportacao = Path.GetFileName(newPath2);
+            string NameFileBase = Path.GetFileName(path);
+            var dadosarq = new FileInfo(newPath2);
+
+            var diretoriodestino = @$"{PathImpotacao}\{dadosarq.Name.Replace(dadosarq.Extension, "")}\";
+            Directory.CreateDirectory(diretoriodestino);
+            var NameFile = diretoriodestino + dadosarq.Name.Replace(dadosarq.Extension, "") + "{0}.sql";
+
+
+            try
+            {
+                var arqs = ret.Select((x, i) => new { Index = i, Value = x })
+                    .GroupBy(x => x.Index / 6000)
+                    .Select(x => x.Select(v => v.Value).ToList())
+                    .ToList();
+
+                arqs.Select((x, i) => new
+                {
+                    item = x,
+                    index = i
+                })
+                .ToList()
+                .ForEach(val =>
+                {
+                    var sqlinsert = val.item.Select(c => c.SQL + Environment.NewLine).ToList();
+                    var tmp = sqlinsert.Last().Replace("," + Environment.NewLine, Environment.NewLine);
+                    sqlinsert.RemoveAt(sqlinsert.Count() - 1);
+                    sqlinsert.Add(tmp);
+                    sqlinsert.Insert(0, "select * from (values ");
+                    sqlinsert.Add(")A(Col1,	Col2,	Col3,	Col4,	Col5,	Col6,	Col7,	Col8,	Col9,	Col10,	Col11,	Col12,	Col13,	Col14,	Col15,	Col16,	Col17,	Col18,	Col19,	Col20,	Col21,	Col22,	Col23,	Col24,	Col25)");
+                    File.WriteAllLines(String.Format(NameFile, val.index), sqlinsert);
+
+                });
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
     }
 }
