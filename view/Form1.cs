@@ -51,7 +51,7 @@ namespace ProjectEX
         }
 
         DataTableCollection TableCollection;
-        private void btnBrowse_Click(object sender, EventArgs e)
+        public void selectPlanilhaEx()
         {
             //Filtro para acher as planilhas
             Utils.CloseExcelCMD();
@@ -200,14 +200,6 @@ namespace ProjectEX
             tbxImportPath.Text = "";
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            frmPrincipal frmPrincipal = new frmPrincipal();
-            this.Hide();
-            frmPrincipal.ShowDialog();
-            Utils.CloseExcelCMD();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
         }
@@ -354,10 +346,7 @@ namespace ProjectEX
             Utils.CloseExcelCMD();
         }
 
-        private void btnOpenImport_Click(object sender, EventArgs e)
-        {
-            Process.Start("explorer.exe", @$"{PathImpotacao}\{NameFile}");
-        }
+     
         public void DeparaMove()
         {
             PathImpotacao = System.IO.Path.GetDirectoryName(newPath2);
@@ -390,6 +379,29 @@ namespace ProjectEX
                 MessageBox.Show(ex.Message.ToString());
             }
             //Process.Start("explorer.exe", $"{newDirectory}");
+        }
+
+        private void tbnDepara_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            Utils.CloseExcelCMD();
+        }
+
+        private void btnOpenLocal_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", @$"{PathImpotacao}\{NameFile}");
+        }
+
+        private void btnSelectEx_Click(object sender, EventArgs e)
+        {
+            selectPlanilhaEx();
         }
     }
 }

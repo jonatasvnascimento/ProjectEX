@@ -39,7 +39,6 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBoxSheet = new System.Windows.Forms.ComboBox();
             this.tbxNomeCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnTxt = new System.Windows.Forms.Button();
@@ -80,31 +79,46 @@
             // 
             // btnGerarSQL
             // 
-            this.btnGerarSQL.Location = new System.Drawing.Point(995, 624);
+            this.btnGerarSQL.BackColor = System.Drawing.Color.DimGray;
+            this.btnGerarSQL.FlatAppearance.BorderSize = 0;
+            this.btnGerarSQL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarSQL.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarSQL.ForeColor = System.Drawing.Color.White;
+            this.btnGerarSQL.Location = new System.Drawing.Point(999, 623);
             this.btnGerarSQL.Name = "btnGerarSQL";
-            this.btnGerarSQL.Size = new System.Drawing.Size(93, 23);
+            this.btnGerarSQL.Size = new System.Drawing.Size(93, 26);
             this.btnGerarSQL.TabIndex = 3;
             this.btnGerarSQL.Text = "GerarSQL View";
-            this.btnGerarSQL.UseVisualStyleBackColor = true;
+            this.btnGerarSQL.UseVisualStyleBackColor = false;
             this.btnGerarSQL.Click += new System.EventHandler(this.btnGerarSQL_Click);
             // 
             // btnInsertDB
             // 
-            this.btnInsertDB.Location = new System.Drawing.Point(1094, 624);
+            this.btnInsertDB.BackColor = System.Drawing.Color.DimGray;
+            this.btnInsertDB.FlatAppearance.BorderSize = 0;
+            this.btnInsertDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertDB.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnInsertDB.ForeColor = System.Drawing.Color.White;
+            this.btnInsertDB.Location = new System.Drawing.Point(1098, 623);
             this.btnInsertDB.Name = "btnInsertDB";
-            this.btnInsertDB.Size = new System.Drawing.Size(75, 23);
+            this.btnInsertDB.Size = new System.Drawing.Size(75, 26);
             this.btnInsertDB.TabIndex = 4;
             this.btnInsertDB.Text = "Insert DB";
-            this.btnInsertDB.UseVisualStyleBackColor = true;
+            this.btnInsertDB.UseVisualStyleBackColor = false;
             // 
             // btnCopiar
             // 
-            this.btnCopiar.Location = new System.Drawing.Point(1175, 624);
+            this.btnCopiar.BackColor = System.Drawing.Color.DimGray;
+            this.btnCopiar.FlatAppearance.BorderSize = 0;
+            this.btnCopiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCopiar.ForeColor = System.Drawing.Color.White;
+            this.btnCopiar.Location = new System.Drawing.Point(1179, 623);
             this.btnCopiar.Name = "btnCopiar";
-            this.btnCopiar.Size = new System.Drawing.Size(75, 23);
+            this.btnCopiar.Size = new System.Drawing.Size(75, 26);
             this.btnCopiar.TabIndex = 5;
             this.btnCopiar.Text = "Copiar";
-            this.btnCopiar.UseVisualStyleBackColor = true;
+            this.btnCopiar.UseVisualStyleBackColor = false;
             this.btnCopiar.Click += new System.EventHandler(this.btnCopiar_Click);
             // 
             // txtFilename
@@ -129,13 +143,17 @@
             // 
             // btnBrowse
             // 
+            this.btnBrowse.BackColor = System.Drawing.Color.DimGray;
+            this.btnBrowse.FlatAppearance.BorderSize = 0;
+            this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBrowse.ForeColor = System.Drawing.Color.White;
             this.btnBrowse.Location = new System.Drawing.Point(580, 627);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(31, 23);
             this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // progressBar1
@@ -153,14 +171,6 @@
             this.DataGridView1.RowTemplate.Height = 25;
             this.DataGridView1.Size = new System.Drawing.Size(1242, 295);
             this.DataGridView1.TabIndex = 10;
-            // 
-            // comboBoxSheet
-            // 
-            this.comboBoxSheet.FormattingEnabled = true;
-            this.comboBoxSheet.Location = new System.Drawing.Point(78, 684);
-            this.comboBoxSheet.Name = "comboBoxSheet";
-            this.comboBoxSheet.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxSheet.TabIndex = 11;
             // 
             // tbxNomeCliente
             // 
@@ -183,24 +193,28 @@
             // 
             // btnTxt
             // 
-            this.btnTxt.Location = new System.Drawing.Point(914, 624);
+            this.btnTxt.BackColor = System.Drawing.Color.DimGray;
+            this.btnTxt.FlatAppearance.BorderSize = 0;
+            this.btnTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTxt.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTxt.ForeColor = System.Drawing.Color.White;
+            this.btnTxt.Location = new System.Drawing.Point(899, 623);
             this.btnTxt.Name = "btnTxt";
-            this.btnTxt.Size = new System.Drawing.Size(75, 23);
+            this.btnTxt.Size = new System.Drawing.Size(94, 26);
             this.btnTxt.TabIndex = 14;
             this.btnTxt.Text = "Import SQL";
-            this.btnTxt.UseVisualStyleBackColor = true;
+            this.btnTxt.UseVisualStyleBackColor = false;
             this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
             // 
             // frmSQLgerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1266, 715);
             this.Controls.Add(this.btnTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNomeCliente);
-            this.Controls.Add(this.comboBoxSheet);
             this.Controls.Add(this.DataGridView1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtFilename);
@@ -212,6 +226,7 @@
             this.Controls.Add(this.lblExit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxGeradorSQL);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSQLgerador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -236,7 +251,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.DataGridView DataGridView1;
-        private System.Windows.Forms.ComboBox comboBoxSheet;
         private System.Windows.Forms.TextBox tbxNomeCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnTxt;
