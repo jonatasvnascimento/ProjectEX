@@ -38,7 +38,7 @@ namespace ProjectEX.ultils
                         campos.Cor =                valueField(sheet.Cells[row + 1, 7].Text).validaCampo(4);
                         campos.Tamanho =            valueField(sheet.Cells[row + 1, 8].Text).validaCampo(2);
                         campos.QtdHigienizações =   valueField(sheet.Cells[row + 1, 9].Text).validaCampo(8);
-                        campos.Cadastro =           valueField(sheet.Cells[row + 1, 10].Text).validaCampo(100, true);
+                        campos.Cadastro =           valueField(sheet.Cells[row + 1, 10].Text).validaCampo(10, true);
                         campos.Funcionario =        valueField(sheet.Cells[row + 1, 11].Text).validaCampo(6);
                         campos.Nome =               valueField(sheet.Cells[row + 1, 12].Text).validaCampo(100);
                         campos.NumArm =             valueField(sheet.Cells[row + 1, 13].Text).validaCampo(6, false, true);
@@ -73,7 +73,7 @@ namespace ProjectEX.ultils
 
             if (armario)
             {
-                if (campo == "")
+                if (campo == "" || campo == "0")
                 {
                     campo = "000000";
                 }
