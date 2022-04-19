@@ -85,7 +85,13 @@ namespace ProjectEX.ultils
                 {
                     if (campo != "")
                     {
-                        campo = $"{campo.Substring(6, 4)}{campo.Substring(3, 2)}{campo.Substring(0, 2)}";
+                        try
+                        {
+                            campo = $"{campo.Substring(6, 4)}{campo.Substring(3, 2)}{campo.Substring(0, 2)}";
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
 
                 }

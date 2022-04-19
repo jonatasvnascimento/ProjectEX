@@ -58,14 +58,6 @@ namespace ProjectEX
             progressBar1.Visible = false;
         }
 
-        private void lblExit_Click(object sender, EventArgs e)
-        {
-            frmPrincipal frmPrincipal = new frmPrincipal();
-            this.Hide();
-            frmPrincipal.ShowDialog();
-            Utils.CloseExcelCMD();
-        }
-
         private void btnGerarSQL_Click(object sender, EventArgs e)
         {
             copyDataGrid();
@@ -102,10 +94,6 @@ namespace ProjectEX
         }
 
         DataTableCollection TableCollection;
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            openFileExcel();
-        }
         public void openFileExcel()
         {
             //Filtro para acher as planilhas
@@ -340,10 +328,6 @@ namespace ProjectEX
             }
 
         }
-
-        private void btnCopiar_Click(object sender, EventArgs e)
-        {
-        }
         private void tbxNomeCliente_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -420,5 +404,17 @@ namespace ProjectEX
             }
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            this.Hide();
+            frmPrincipal.ShowDialog();
+            Utils.CloseExcelCMD();
+        }
+
+        private void btnOpenEx_Click(object sender, EventArgs e)
+        {
+            openFileExcel();
+        }
     }
 }
