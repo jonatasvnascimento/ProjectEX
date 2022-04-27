@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using System.Diagnostics;
+using ProjectEX.model;
+using ProjectEX.ultils;
 
 namespace ProjectEX
 {
@@ -26,6 +28,8 @@ namespace ProjectEX
         public string newDirectory2 { get; set; }
         public string PathImpotacao { get; set; }
         public string NameFile { get; set; }
+
+        List<CamposExcelModel> ret;
 
         public string TableName { get; set; }
         string[] Barra = new string[0];
@@ -113,8 +117,14 @@ namespace ProjectEX
 
         private string valueField(object text) => isValid(text) ? text.ToString() : "";
         private bool isValid(object value) => value != null && value.GetType() == typeof(string);
-      
+
         private void carregaLista()
+        {
+            ret = NewExcel.LoadValues(path);
+            this.dataGridView1.DataSource = ret;
+            this.dataGridView1.Refresh();
+        }
+        private void carregaLista2()
         {
             System.Data.DataTable dt = new();
 

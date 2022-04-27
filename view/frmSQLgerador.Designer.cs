@@ -38,7 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnTxt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnOpenEx = new System.Windows.Forms.Button();
             this.btnGerarSQL = new System.Windows.Forms.Button();
@@ -147,7 +146,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnOpenEx);
             this.panel1.Controls.Add(this.btnGerarSQL);
@@ -160,22 +158,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 715);
             this.panel1.TabIndex = 20;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.DimGray;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 296);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 49);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Copy";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -301,6 +283,5 @@
         private System.Windows.Forms.Button btnGerarSQL;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnOpenEx;
-        private System.Windows.Forms.Button button3;
     }
 }
