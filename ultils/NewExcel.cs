@@ -28,9 +28,9 @@ namespace ProjectEX.ultils
                 {
                     //var task = Task.Run(async () =>
                     //{
-                    //    if (!string.IsNullOrEmpty(sheet.Cells[row + 1, 2].Text))
-                    //    {
-                            CamposExcelModel campos = new CamposExcelModel();
+                    if (!string.IsNullOrEmpty(sheet.Cells[row + 1, 2].Text))
+                    {
+                        CamposExcelModel campos = new CamposExcelModel();
 
                             campos.Barra = valueField(sheet.Cells[row + 1, 2].Text).validaCampo(10);
                             campos.NovoProduto = valueField(sheet.Cells[row + 1, 3].Text).validaCampo(15);
@@ -53,7 +53,7 @@ namespace ProjectEX.ultils
                             campos.Contrato = valueField(sheet.Cells[row + 1, 20].Text).validaCampo(50);
 
                             objretorno.Add(campos);
-                    //    }
+                    }
                     //});
 
                     //tasks.Add(task);
