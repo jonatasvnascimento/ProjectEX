@@ -23,13 +23,13 @@ namespace ProjectEX.ultils
             {
                 var sheet = excelPackage.Workbook.Worksheets[0];
                 bool continuar = true;
-                var tasks = new List<Task>();
+                //var tasks = new List<Task>();
                 for (var row = 1; row <= sheet.Dimension.Rows; row++)
                 {
-                    var task = Task.Run(async () =>
-                    {
-                        if (!string.IsNullOrEmpty(sheet.Cells[row + 1, 2].Text))
-                        {
+                    //var task = Task.Run(async () =>
+                    //{
+                    //    if (!string.IsNullOrEmpty(sheet.Cells[row + 1, 2].Text))
+                    //    {
                             CamposExcelModel campos = new CamposExcelModel();
 
                             campos.Barra = valueField(sheet.Cells[row + 1, 2].Text).validaCampo(10);
@@ -53,12 +53,12 @@ namespace ProjectEX.ultils
                             campos.Contrato = valueField(sheet.Cells[row + 1, 20].Text).validaCampo(50);
 
                             objretorno.Add(campos);
-                        }
-                    });
+                    //    }
+                    //});
 
-                    tasks.Add(task);
+                    //tasks.Add(task);
                 }
-                Task.WaitAll(tasks.ToArray());
+                //Task.WaitAll(tasks.ToArray());
             }
             return objretorno;
         }
