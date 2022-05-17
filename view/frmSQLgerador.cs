@@ -122,6 +122,7 @@ namespace ProjectEX
             ret = NewExcel.LoadValues(path);
             this.DataGridView1.DataSource = ret;
             this.DataGridView1.Refresh();
+            lblContRowsEx.Text = ret.Count.ToString();
         }
 
         private void carregaLista2()

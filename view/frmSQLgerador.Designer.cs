@@ -43,6 +43,7 @@
             this.btnGerarSQL = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblContRowsEx = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -237,12 +238,23 @@
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 2;
             // 
+            // lblContRowsEx
+            // 
+            this.lblContRowsEx.AutoSize = true;
+            this.lblContRowsEx.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblContRowsEx.Location = new System.Drawing.Point(216, 21);
+            this.lblContRowsEx.Name = "lblContRowsEx";
+            this.lblContRowsEx.Size = new System.Drawing.Size(25, 22);
+            this.lblContRowsEx.TabIndex = 21;
+            this.lblContRowsEx.Text = "...";
+            // 
             // frmSQLgerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1266, 715);
+            this.Controls.Add(this.lblContRowsEx);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNomeCliente);
@@ -283,5 +295,6 @@
         private System.Windows.Forms.Button btnGerarSQL;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnOpenEx;
+        private System.Windows.Forms.Label lblContRowsEx;
     }
 }
