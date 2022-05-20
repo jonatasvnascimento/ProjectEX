@@ -38,6 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnTxt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnOpenFile = new System.Windows.Forms.Button();
+            this.btnOpenFolderFinish = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnOpenEx = new System.Windows.Forms.Button();
             this.btnGerarSQL = new System.Windows.Forms.Button();
@@ -54,11 +57,11 @@
             // 
             this.tbxGeradorSQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxGeradorSQL.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbxGeradorSQL.Location = new System.Drawing.Point(206, 313);
+            this.tbxGeradorSQL.Location = new System.Drawing.Point(206, 552);
             this.tbxGeradorSQL.Multiline = true;
             this.tbxGeradorSQL.Name = "tbxGeradorSQL";
             this.tbxGeradorSQL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxGeradorSQL.Size = new System.Drawing.Size(1048, 284);
+            this.tbxGeradorSQL.Size = new System.Drawing.Size(1048, 96);
             this.tbxGeradorSQL.TabIndex = 0;
             // 
             // label1
@@ -75,7 +78,7 @@
             // 
             this.txtFilename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilename.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFilename.Location = new System.Drawing.Point(270, 609);
+            this.txtFilename.Location = new System.Drawing.Point(270, 654);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.ReadOnly = true;
             this.txtFilename.Size = new System.Drawing.Size(496, 22);
@@ -86,7 +89,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(206, 611);
+            this.label2.Location = new System.Drawing.Point(206, 656);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 7;
@@ -94,7 +97,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(1084, 555);
+            this.progressBar1.Location = new System.Drawing.Point(1088, 612);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(139, 23);
             this.progressBar1.TabIndex = 9;
@@ -105,13 +108,13 @@
             this.DataGridView1.Location = new System.Drawing.Point(206, 12);
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowTemplate.Height = 25;
-            this.DataGridView1.Size = new System.Drawing.Size(1048, 295);
+            this.DataGridView1.Size = new System.Drawing.Size(1048, 534);
             this.DataGridView1.TabIndex = 10;
             // 
             // tbxNomeCliente
             // 
             this.tbxNomeCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxNomeCliente.Location = new System.Drawing.Point(270, 640);
+            this.tbxNomeCliente.Location = new System.Drawing.Point(270, 685);
             this.tbxNomeCliente.Name = "tbxNomeCliente";
             this.tbxNomeCliente.Size = new System.Drawing.Size(496, 23);
             this.tbxNomeCliente.TabIndex = 12;
@@ -122,7 +125,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(206, 640);
+            this.label3.Location = new System.Drawing.Point(206, 685);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 13;
@@ -148,6 +151,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.btnReload);
+            this.panel1.Controls.Add(this.btnOpenFile);
+            this.panel1.Controls.Add(this.btnOpenFolderFinish);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnOpenEx);
             this.panel1.Controls.Add(this.btnGerarSQL);
@@ -160,6 +166,57 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 715);
             this.panel1.TabIndex = 20;
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.Color.DimGray;
+            this.btnReload.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReload.FlatAppearance.BorderSize = 0;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnReload.ForeColor = System.Drawing.Color.White;
+            this.btnReload.Location = new System.Drawing.Point(0, 394);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(200, 49);
+            this.btnReload.TabIndex = 20;
+            this.btnReload.Text = "Reload";
+            this.btnReload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.BackColor = System.Drawing.Color.DimGray;
+            this.btnOpenFile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOpenFile.FlatAppearance.BorderSize = 0;
+            this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenFile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnOpenFile.ForeColor = System.Drawing.Color.White;
+            this.btnOpenFile.Location = new System.Drawing.Point(0, 345);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(200, 49);
+            this.btnOpenFile.TabIndex = 19;
+            this.btnOpenFile.Text = "Open File Confirm";
+            this.btnOpenFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenFile.UseVisualStyleBackColor = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
+            // btnOpenFolderFinish
+            // 
+            this.btnOpenFolderFinish.BackColor = System.Drawing.Color.DimGray;
+            this.btnOpenFolderFinish.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOpenFolderFinish.FlatAppearance.BorderSize = 0;
+            this.btnOpenFolderFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenFolderFinish.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnOpenFolderFinish.ForeColor = System.Drawing.Color.White;
+            this.btnOpenFolderFinish.Location = new System.Drawing.Point(0, 296);
+            this.btnOpenFolderFinish.Name = "btnOpenFolderFinish";
+            this.btnOpenFolderFinish.Size = new System.Drawing.Size(200, 49);
+            this.btnOpenFolderFinish.TabIndex = 18;
+            this.btnOpenFolderFinish.Text = "Open Folder Finish";
+            this.btnOpenFolderFinish.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenFolderFinish.UseVisualStyleBackColor = false;
+            this.btnOpenFolderFinish.Click += new System.EventHandler(this.btnOpenFolderFinish_Click);
             // 
             // button2
             // 
@@ -244,7 +301,7 @@
             this.lblContRowsEx.AutoSize = true;
             this.lblContRowsEx.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblContRowsEx.ForeColor = System.Drawing.Color.White;
-            this.lblContRowsEx.Location = new System.Drawing.Point(825, 611);
+            this.lblContRowsEx.Location = new System.Drawing.Point(825, 656);
             this.lblContRowsEx.Name = "lblContRowsEx";
             this.lblContRowsEx.Size = new System.Drawing.Size(17, 17);
             this.lblContRowsEx.TabIndex = 21;
@@ -255,7 +312,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(772, 611);
+            this.label4.Location = new System.Drawing.Point(772, 656);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 22;
@@ -311,5 +368,8 @@
         private System.Windows.Forms.Button btnOpenEx;
         private System.Windows.Forms.Label lblContRowsEx;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnOpenFolderFinish;
+        private System.Windows.Forms.Button btnOpenFile;
+        private System.Windows.Forms.Button btnReload;
     }
 }

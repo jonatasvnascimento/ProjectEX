@@ -416,5 +416,36 @@ namespace ProjectEX
         {
             openFileExcel();
         }
+
+        private void btnOpenFolderFinish_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DirectoryInfo getPath = new DirectoryInfo(path);
+                var getFolderFile = getPath.Parent;
+                Process.Start("explorer.exe", getFolderFile.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Selecione uma planilha: {ex.Message}");
+            }
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", path);
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                carregaLista();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Selecione uma planilha: {ex.Message}");
+            }
+        }
     }
 }
