@@ -11,8 +11,8 @@ namespace ProjectEX.model
     {
         public string Indice { get; set; }
         public string Barra { get; set; }
-        public string NovoProduto { get; set; }
-        public string ItemCTR { get; set; }
+        public string NovoProduto_ { get; set; }
+        public string ItemCtr_ { get; set; }
         public string Enxoval { get; set; }
         public string Descricao { get; set; }
         public string Cor { get; set; }
@@ -21,20 +21,20 @@ namespace ProjectEX.model
         public string Cadastro { get; set; }
         public string Funcionario { get; set; }
         public string Nome { get; set; }
-        public string NumArm { get; set; }
-        public string NumGav { get; set; }
+        public string NumArm_ { get; set; }
+        public string NumGav_ { get; set; }
         public string Localização { get; set; }
         public string CodSet { get; set; }
         public string DescSetor { get; set; }
-        public string Filial { get; set; }
-        public string NovoContrato { get; set; }
+        public string Filial_ { get; set; }
+        public string NovoContrato_ { get; set; }
         public string Contrato { get; set; }
         public string Cliente { get; set; }
         [NotMapped]
         public string SQL { get { return
                         $"('', " +
                         $"'{Barra}', " +
-                        $"'{NovoProduto}', " +
+                        $"'{NovoProduto_}', " +
                         $"'{Enxoval}', " +
                         $"'{Descricao}', " +
                         $"'{Tamanho}', " +
@@ -42,18 +42,18 @@ namespace ProjectEX.model
                         $"'{Cadastro}', " +
                         $"'{Funcionario}', " +
                         $"'{Nome}', " +
-                        $"'{NumArm}', " +
+                        $"'{NumArm_}', " +
                         $"'', " +
                         $"'', " +
-                        $"'{NovoContrato}', " +
+                        $"'{NovoContrato_}', " +
                         $"'{Contrato}', " +
-                        $"'{Filial}', " +
+                        $"'{Filial_}', " +
                         $"'', " +
                         $"'', " +
                         $"'', " +
-                        $"'{ItemCTR}', " +
+                        $"'{ItemCtr_}', " +
                         $"'', " +
-                        $"'{NumGav}', " +
+                        $"'{NumGav_}', " +
                         $"'', " +
                         $"'', " +
                         $"'{Localização}'),";

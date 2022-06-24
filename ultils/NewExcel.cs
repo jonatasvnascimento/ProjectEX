@@ -33,8 +33,8 @@ namespace ProjectEX.ultils
                         CamposExcelModel campos = new CamposExcelModel();
 
                         campos.Barra = valueField(sheet.Cells[row + 1, 2].Text).validaCampo(10);
-                        campos.NovoProduto = valueField(sheet.Cells[row + 1, 3].Text).validaCampo(15);
-                        campos.ItemCTR = valueField(sheet.Cells[row + 1, 4].Text).validaCampo(2);
+                        campos.NovoProduto_ = valueField(sheet.Cells[row + 1, 3].Text).validaCampo(15);
+                        campos.ItemCtr_ = valueField(sheet.Cells[row + 1, 4].Text).validaCampo(2);
                         campos.Enxoval = valueField(sheet.Cells[row + 1, 5].Text).validaCampo(15);
                         campos.Descricao = valueField(sheet.Cells[row + 1, 6].Text).validaCampo(60);
                         campos.Cor = valueField(sheet.Cells[row + 1, 7].Text).validaCampo(4);
@@ -43,13 +43,13 @@ namespace ProjectEX.ultils
                         campos.Cadastro = valueField(sheet.Cells[row + 1, 10].Text).validaCampo(10, true);
                         campos.Funcionario = valueField(sheet.Cells[row + 1, 11].Text).validaCampo(6);
                         campos.Nome = valueField(sheet.Cells[row + 1, 12].Text).validaCampo(100);
-                        campos.NumArm = valueField(sheet.Cells[row + 1, 13].Text).validaCampo(6, false, true);
-                        campos.NumGav = valueField(sheet.Cells[row + 1, 14].Text).validaCampo(6);
+                        campos.NumArm_ = valueField(sheet.Cells[row + 1, 13].Text).validaCampo(6, false, true);
+                        campos.NumGav_ = valueField(sheet.Cells[row + 1, 14].Text).validaCampo(6);
                         campos.Localização = valueField(sheet.Cells[row + 1, 15].Text).validaCampo(20);
                         campos.CodSet = valueField(sheet.Cells[row + 1, 16].Text).validaCampo(6);
                         campos.DescSetor = valueField(sheet.Cells[row + 1, 17].Text).validaCampo(20);
-                        campos.Filial = valueField(sheet.Cells[row + 1, 18].Text).validaCampo(2);
-                        campos.NovoContrato = valueField(sheet.Cells[row + 1, 19].Text).validaCampo(6);
+                        campos.Filial_ = valueField(sheet.Cells[row + 1, 18].Text).validaCampo(2);
+                        campos.NovoContrato_ = valueField(sheet.Cells[row + 1, 19].Text).validaCampo(6);
                         campos.Contrato = valueField(sheet.Cells[row + 1, 20].Text).validaCampo(50);
 
 
