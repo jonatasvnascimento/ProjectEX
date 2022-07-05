@@ -1,6 +1,6 @@
 ﻿namespace ProjectEX
 {
-    partial class Form1
+    partial class frmDepara
     {
         /// <summary>
         ///  Required designer variable.

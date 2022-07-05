@@ -20,7 +20,7 @@ namespace ProjectEX
 
         private void leituraDeparaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            frmDepara form1 = new frmDepara();
             this.Hide();
             form1.Show();
 
@@ -40,7 +40,7 @@ namespace ProjectEX
 
         private void tbnDepara_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            frmDepara form1 = new frmDepara();
             this.Hide();
             form1.Show();
         }
@@ -50,6 +50,11 @@ namespace ProjectEX
             frmSQLgerador frmSQLgerador = new frmSQLgerador();
             this.Hide();
             frmSQLgerador.Show();
+        }
+
+        private void lblVersion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

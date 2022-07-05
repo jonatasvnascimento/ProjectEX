@@ -17,7 +17,7 @@ using ProjectEX.ultils;
 
 namespace ProjectEX
 {
-    public partial class Form1 : Form
+    public partial class frmDepara : Form
     {
         public string path { get; set; }
         public string newPath { get; set; }
@@ -43,7 +43,7 @@ namespace ProjectEX
         string[] Nome = new string[0];
         string[] Localização = new string[0];
         string[] Contrato = new string[0];
-        public Form1()
+        public frmDepara()
         {
             InitializeComponent();
             progressBar1.Visible = false;
