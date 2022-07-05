@@ -53,7 +53,7 @@
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 510);
+            this.panel1.Size = new System.Drawing.Size(200, 883);
             this.panel1.TabIndex = 1;
             // 
             // btnSair
@@ -63,7 +63,7 @@
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(0, 461);
+            this.btnSair.Location = new System.Drawing.Point(0, 834);
             this.btnSair.Margin = new System.Windows.Forms.Padding(0);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(200, 49);
@@ -126,7 +126,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(33, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 30);
+            this.label1.Size = new System.Drawing.Size(153, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "ProjectEX";
             // 
@@ -139,15 +139,15 @@
             this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 510);
+            this.panel3.Size = new System.Drawing.Size(1279, 883);
             this.panel3.TabIndex = 2;
             // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(543, 484);
+            this.lblVersion.Location = new System.Drawing.Point(1204, 854);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(52, 17);
+            this.lblVersion.Size = new System.Drawing.Size(63, 20);
             this.lblVersion.TabIndex = 1;
             this.lblVersion.Text = "Version";
             // 
@@ -155,18 +155,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(242, 24);
+            this.label2.Location = new System.Drawing.Point(524, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 42);
+            this.label2.Size = new System.Drawing.Size(159, 55);
             this.label2.TabIndex = 0;
             this.label2.Text = "HOME";
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 510);
+            this.ClientSize = new System.Drawing.Size(1479, 883);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
