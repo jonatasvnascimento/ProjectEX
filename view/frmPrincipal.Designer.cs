@@ -37,6 +37,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblVersion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnServers = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -45,6 +46,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.btnServers);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnGerador);
             this.panel1.Controls.Add(this.tbnDepara);
@@ -162,6 +164,23 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "HOME";
             // 
+            // btnServers
+            // 
+            this.btnServers.BackColor = System.Drawing.Color.Gray;
+            this.btnServers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnServers.FlatAppearance.BorderSize = 0;
+            this.btnServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServers.ForeColor = System.Drawing.Color.White;
+            this.btnServers.Location = new System.Drawing.Point(0, 198);
+            this.btnServers.Margin = new System.Windows.Forms.Padding(0);
+            this.btnServers.Name = "btnServers";
+            this.btnServers.Padding = new System.Windows.Forms.Padding(1);
+            this.btnServers.Size = new System.Drawing.Size(200, 49);
+            this.btnServers.TabIndex = 6;
+            this.btnServers.Text = "Servidores";
+            this.btnServers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServers.UseVisualStyleBackColor = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -194,5 +213,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Button btnServers;
     }
 }

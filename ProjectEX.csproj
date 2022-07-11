@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="controler\" />
+    <Folder Include="controller\" />
   </ItemGroup>
 
   <ItemGroup>
