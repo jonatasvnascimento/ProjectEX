@@ -28,76 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblServidores = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
             this.lblVersion = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.tbxPathTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.lblFileType = new System.Windows.Forms.Label();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Controls.Add(this.lblServidores);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 2;
-            // 
-            // lblServidores
-            // 
-            this.lblServidores.AutoSize = true;
-            this.lblServidores.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblServidores.Location = new System.Drawing.Point(12, 29);
-            this.lblServidores.Name = "lblServidores";
-            this.lblServidores.Size = new System.Drawing.Size(165, 37);
-            this.lblServidores.TabIndex = 0;
-            this.lblServidores.Text = "Servidores";
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.Gray;
-            this.btnSair.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSair.FlatAppearance.BorderSize = 0;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Location = new System.Drawing.Point(0, 857);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(200, 49);
-            this.btnSair.TabIndex = 5;
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.btnSair);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 906);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Controls.Add(this.lblVersion);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1229, 906);
-            this.panel3.TabIndex = 3;
             // 
             // lblVersion
             // 
@@ -108,6 +53,141 @@
             this.lblVersion.TabIndex = 1;
             this.lblVersion.Text = "Version";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.DarkGray;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(9, 9);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Padding = new System.Windows.Forms.Padding(1);
+            this.btnBack.Size = new System.Drawing.Size(57, 31);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnGo
+            // 
+            this.btnGo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnGo.FlatAppearance.BorderSize = 0;
+            this.btnGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGo.ForeColor = System.Drawing.Color.White;
+            this.btnGo.Location = new System.Drawing.Point(78, 9);
+            this.btnGo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Padding = new System.Windows.Forms.Padding(1);
+            this.btnGo.Size = new System.Drawing.Size(57, 31);
+            this.btnGo.TabIndex = 5;
+            this.btnGo.Text = ">>";
+            this.btnGo.UseVisualStyleBackColor = false;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // tbxPathTextBox
+            // 
+            this.tbxPathTextBox.BackColor = System.Drawing.Color.White;
+            this.tbxPathTextBox.Location = new System.Drawing.Point(151, 9);
+            this.tbxPathTextBox.Multiline = true;
+            this.tbxPathTextBox.Name = "tbxPathTextBox";
+            this.tbxPathTextBox.Size = new System.Drawing.Size(1195, 31);
+            this.tbxPathTextBox.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1360, 9);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(1);
+            this.button2.Size = new System.Drawing.Size(57, 31);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Open";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.Controls.Add(this.listView1);
+            this.panel3.Controls.Add(this.lblFileType);
+            this.panel3.Controls.Add(this.lblFileName);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.tbxPathTextBox);
+            this.panel3.Controls.Add(this.btnGo);
+            this.panel3.Controls.Add(this.btnBack);
+            this.panel3.Controls.Add(this.lblVersion);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.ForeColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1429, 906);
+            this.panel3.TabIndex = 3;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.LargeImageList = this.iconList;
+            this.listView1.Location = new System.Drawing.Point(9, 46);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1408, 787);
+            this.listView1.SmallImageList = this.iconList;
+            this.listView1.TabIndex = 14;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // iconList
+            // 
+            this.iconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.iconList.ImageSize = new System.Drawing.Size(48, 48);
+            this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // lblFileType
+            // 
+            this.lblFileType.AutoSize = true;
+            this.lblFileType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFileType.Location = new System.Drawing.Point(89, 855);
+            this.lblFileType.Name = "lblFileType";
+            this.lblFileType.Size = new System.Drawing.Size(29, 22);
+            this.lblFileType.TabIndex = 12;
+            this.lblFileType.Text = "---";
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblFileName.Location = new System.Drawing.Point(89, 877);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(29, 22);
+            this.lblFileName.TabIndex = 11;
+            this.lblFileName.Text = "---";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Location = new System.Drawing.Point(9, 855);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 22);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "FileType";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(9, 877);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 22);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "FileName";
+            // 
             // frmServidores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -115,13 +195,11 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1429, 906);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmServidores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmServidores";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmServidores_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -130,11 +208,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblServidores;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.TextBox tbxPathTextBox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFileType;
+        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.ImageList iconList;
+        private System.Windows.Forms.ListView listView1;
     }
 }

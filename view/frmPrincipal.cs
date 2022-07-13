@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectEX.view;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,6 +56,13 @@ namespace ProjectEX
         private void lblVersion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnServers_Click(object sender, EventArgs e)
+        {
+            frmServidores frmServidores = new frmServidores();
+            this.Hide();
+            frmServidores.Show();
         }
     }
 }

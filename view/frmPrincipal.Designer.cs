@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnServers = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGerador = new System.Windows.Forms.Button();
             this.tbnDepara = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblVersion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnServers = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -57,6 +57,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 953);
             this.panel1.TabIndex = 1;
+            // 
+            // btnServers
+            // 
+            this.btnServers.BackColor = System.Drawing.Color.Gray;
+            this.btnServers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnServers.FlatAppearance.BorderSize = 0;
+            this.btnServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServers.ForeColor = System.Drawing.Color.White;
+            this.btnServers.Location = new System.Drawing.Point(0, 198);
+            this.btnServers.Margin = new System.Windows.Forms.Padding(0);
+            this.btnServers.Name = "btnServers";
+            this.btnServers.Padding = new System.Windows.Forms.Padding(1);
+            this.btnServers.Size = new System.Drawing.Size(200, 49);
+            this.btnServers.TabIndex = 6;
+            this.btnServers.Text = "Servidores";
+            this.btnServers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServers.UseVisualStyleBackColor = false;
+            this.btnServers.Click += new System.EventHandler(this.btnServers_Click);
             // 
             // btnSair
             // 
@@ -163,23 +181,6 @@
             this.label2.Size = new System.Drawing.Size(159, 55);
             this.label2.TabIndex = 0;
             this.label2.Text = "HOME";
-            // 
-            // btnServers
-            // 
-            this.btnServers.BackColor = System.Drawing.Color.Gray;
-            this.btnServers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnServers.FlatAppearance.BorderSize = 0;
-            this.btnServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnServers.ForeColor = System.Drawing.Color.White;
-            this.btnServers.Location = new System.Drawing.Point(0, 198);
-            this.btnServers.Margin = new System.Windows.Forms.Padding(0);
-            this.btnServers.Name = "btnServers";
-            this.btnServers.Padding = new System.Windows.Forms.Padding(1);
-            this.btnServers.Size = new System.Drawing.Size(200, 49);
-            this.btnServers.TabIndex = 6;
-            this.btnServers.Text = "Servidores";
-            this.btnServers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnServers.UseVisualStyleBackColor = false;
             // 
             // frmPrincipal
             // 
