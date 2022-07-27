@@ -13,7 +13,7 @@ namespace ProjectEX.view
 {
     public partial class frmServidores : Form
     {
-        private string filePath = "\\\\172.16.98.40\\c$";
+        private string filePath = Directory.GetDirectoryRoot("/C:");
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public frmServidores()
@@ -23,7 +23,7 @@ namespace ProjectEX.view
 
         private void frmServidores_Load(object sender, EventArgs e)
         {
-           tbxPathTextBox.Text = filePath;
+            tbxPathTextBox.Text = filePath;
             loadFilesAndDirectories();
         }
 
@@ -37,7 +37,7 @@ namespace ProjectEX.view
             {
                 if (isFile)
                 {
-                    tempFilePath = filePath + "\\" + currentlySelectedItemName;
+                    tempFilePath = filePath + "/" + currentlySelectedItemName;
                     FileInfo fileInfo = new FileInfo(tempFilePath);
                     lblFileName.Text = fileInfo.Name;
                     lblFileType.Text = fileInfo.Extension;
@@ -46,6 +46,11 @@ namespace ProjectEX.view
                 else
                 {
                     fileAttr = File.GetAttributes(filePath);
+
+                }
+
+                if ((fileAttr & FileAttributes.Directory) == FileAttributes.Directory)
+                {
                     fileList = new DirectoryInfo(filePath);
                     FileInfo[] files = fileList.GetFiles();
                     DirectoryInfo[] dirs = fileList.GetDirectories();
@@ -53,13 +58,18 @@ namespace ProjectEX.view
                     listView1.Items.Clear();
                     for (int i = 0; i < files.Length; i++)
                     {
-                        listView1.Items.Add(files[i].Name);
+                        listView1.Items.Add(files[i].Name, 13);
                     }
                     for (int i = 0; i < dirs.Length; i++)
                     {
-                        listView1.Items.Add(dirs[i].Name);
+                        listView1.Items.Add(dirs[i].Name, 39);
                     }
                 }
+                else
+                {
+                    lblFileName.Text = this.currentlySelectedItemName;
+                }
+
             }
             catch (Exception ex)
             {
@@ -68,9 +78,38 @@ namespace ProjectEX.view
         }
         public void loadButtonAction()
         {
+            removeBackSlash();
             filePath = tbxPathTextBox.Text;
             loadFilesAndDirectories();
             isFile = false;
+        }
+
+        public void removeBackSlash()
+        {
+            string path = tbxPathTextBox.Text;
+            if (path.LastIndexOf("/") == path.Length - 1)
+            {
+                tbxPathTextBox.Text = path.Substring(0, path.Length - 1);
+            }
+        }
+
+        public void goBack()
+        {
+            try
+            {
+                removeBackSlash();
+
+                string path = tbxPathTextBox.Text;
+                path = path.Substring(0, path.LastIndexOf("/"));
+                this.isFile = false;
+                tbxPathTextBox.Text = path;
+
+                removeBackSlash();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnGo_Click(object sender, EventArgs e)
@@ -80,23 +119,31 @@ namespace ProjectEX.view
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
+            goBack();
+            loadButtonAction();
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             currentlySelectedItemName = e.Item.Text;
+            try
+            {
+                FileAttributes fileAttr = File.GetAttributes(filePath + "/" + currentlySelectedItemName);
+                if ((fileAttr & FileAttributes.Directory) == FileAttributes.Directory)
+                {
+                    isFile = false;
+                    tbxPathTextBox.Text = filePath + "/" + currentlySelectedItemName;
+                }
+                else
+                {
+                    isFile = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            FileAttributes fileAttr = File.GetAttributes(filePath + "\\" + currentlySelectedItemName);
-            if ((fileAttr & FileAttributes.Directory) == FileAttributes.Directory)
-            {
-                isFile = false;
-                tbxPathTextBox.Text = filePath + "\\" + currentlySelectedItemName;
-            }
-            else
-            {
-                isFile = true;
-            }
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
